@@ -13,6 +13,7 @@
 		9C0291A9179020E6007C44BA /* faq_kg.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C0291A7179020E6007C44BA /* faq_kg.json */; };
 		9C0291AA179020E6007C44BA /* faq.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C0291A8179020E6007C44BA /* faq.json */; };
 		9C0291AC17902105007C44BA /* url.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9C0291AB17902105007C44BA /* url.txt */; };
+		9C127EE1179054010031C7B5 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C127EE0179054010031C7B5 /* Common.m */; };
 		9CBF6A791790068E00988B88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBF6A781790068E00988B88 /* UIKit.framework */; };
 		9CBF6A7B1790068E00988B88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBF6A7A1790068E00988B88 /* Foundation.framework */; };
 		9CBF6A7D1790068E00988B88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBF6A7C1790068E00988B88 /* CoreGraphics.framework */; };
@@ -38,6 +39,8 @@
 		9C0291A7179020E6007C44BA /* faq_kg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = faq_kg.json; sourceTree = "<group>"; };
 		9C0291A8179020E6007C44BA /* faq.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = faq.json; sourceTree = "<group>"; };
 		9C0291AB17902105007C44BA /* url.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = url.txt; sourceTree = "<group>"; };
+		9C127EDF179054010031C7B5 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		9C127EE0179054010031C7B5 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		9CBF6A751790068E00988B88 /* iBeeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBeeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CBF6A781790068E00988B88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9CBF6A7A1790068E00988B88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -54,12 +57,12 @@
 		9CBF6A911790068F00988B88 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		9CBF6A931790068F00988B88 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		9CBF6A941790068F00988B88 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		9CBF6A961790068F00988B88 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		9CBF6A981790068F00988B88 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		9CBF6A961790068F00988B88 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = iBeeline/first.png; sourceTree = "<group>"; };
+		9CBF6A981790068F00988B88 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "iBeeline/first@2x.png"; sourceTree = "<group>"; };
 		9CBF6A9A1790068F00988B88 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		9CBF6A9B1790068F00988B88 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		9CBF6A9D1790068F00988B88 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		9CBF6A9F1790068F00988B88 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		9CBF6A9D1790068F00988B88 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = iBeeline/second.png; sourceTree = "<group>"; };
+		9CBF6A9F1790068F00988B88 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "iBeeline/second@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +106,21 @@
 			name = json;
 			sourceTree = "<group>";
 		};
+		9C127EDE179052130031C7B5 /* png */ = {
+			isa = PBXGroup;
+			children = (
+				9CBF6A961790068F00988B88 /* first.png */,
+				9CBF6A981790068F00988B88 /* first@2x.png */,
+				9CBF6A9D1790068F00988B88 /* second.png */,
+				9CBF6A9F1790068F00988B88 /* second@2x.png */,
+			);
+			name = png;
+			sourceTree = "<group>";
+		};
 		9CBF6A6C1790068E00988B88 = {
 			isa = PBXGroup;
 			children = (
+				9C127EDE179052130031C7B5 /* png */,
 				9C0291A4179020CC007C44BA /* json */,
 				9C0291A3179020C5007C44BA /* docs */,
 				9C02919E179020A4007C44BA /* font */,
@@ -136,17 +151,15 @@
 		9CBF6A7E1790068E00988B88 /* iBeeline */ = {
 			isa = PBXGroup;
 			children = (
+				9C127EDF179054010031C7B5 /* Common.h */,
+				9C127EE0179054010031C7B5 /* Common.m */,
 				9CBF6A871790068F00988B88 /* AppDelegate.h */,
 				9CBF6A881790068F00988B88 /* AppDelegate.m */,
 				9CBF6A901790068F00988B88 /* MainStoryboard.storyboard */,
 				9CBF6A931790068F00988B88 /* FirstViewController.h */,
 				9CBF6A941790068F00988B88 /* FirstViewController.m */,
-				9CBF6A961790068F00988B88 /* first.png */,
-				9CBF6A981790068F00988B88 /* first@2x.png */,
 				9CBF6A9A1790068F00988B88 /* SecondViewController.h */,
 				9CBF6A9B1790068F00988B88 /* SecondViewController.m */,
-				9CBF6A9D1790068F00988B88 /* second.png */,
-				9CBF6A9F1790068F00988B88 /* second@2x.png */,
 				9CBF6A7F1790068F00988B88 /* Supporting Files */,
 			);
 			path = iBeeline;
@@ -246,6 +259,7 @@
 				9CBF6A891790068F00988B88 /* AppDelegate.m in Sources */,
 				9CBF6A951790068F00988B88 /* FirstViewController.m in Sources */,
 				9CBF6A9C1790068F00988B88 /* SecondViewController.m in Sources */,
+				9C127EE1179054010031C7B5 /* Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
