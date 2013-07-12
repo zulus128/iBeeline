@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C0291A1179020B9007C44BA /* DS Officina Serif-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C02919F179020B9007C44BA /* DS Officina Serif-Bold.otf */; };
+		9C0291A2179020B9007C44BA /* DS Officina Serif-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C0291A0179020B9007C44BA /* DS Officina Serif-Book.otf */; };
+		9C0291A6179020D7007C44BA /* Beeline_brand_guidelines_RU_p22-54.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9C0291A5179020D7007C44BA /* Beeline_brand_guidelines_RU_p22-54.pdf */; };
+		9C0291A9179020E6007C44BA /* faq_kg.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C0291A7179020E6007C44BA /* faq_kg.json */; };
+		9C0291AA179020E6007C44BA /* faq.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C0291A8179020E6007C44BA /* faq.json */; };
+		9C0291AC17902105007C44BA /* url.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9C0291AB17902105007C44BA /* url.txt */; };
 		9CBF6A791790068E00988B88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBF6A781790068E00988B88 /* UIKit.framework */; };
 		9CBF6A7B1790068E00988B88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBF6A7A1790068E00988B88 /* Foundation.framework */; };
 		9CBF6A7D1790068E00988B88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBF6A7C1790068E00988B88 /* CoreGraphics.framework */; };
@@ -26,6 +32,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C02919F179020B9007C44BA /* DS Officina Serif-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS Officina Serif-Bold.otf"; sourceTree = "<group>"; };
+		9C0291A0179020B9007C44BA /* DS Officina Serif-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS Officina Serif-Book.otf"; sourceTree = "<group>"; };
+		9C0291A5179020D7007C44BA /* Beeline_brand_guidelines_RU_p22-54.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Beeline_brand_guidelines_RU_p22-54.pdf"; sourceTree = "<group>"; };
+		9C0291A7179020E6007C44BA /* faq_kg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = faq_kg.json; sourceTree = "<group>"; };
+		9C0291A8179020E6007C44BA /* faq.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = faq.json; sourceTree = "<group>"; };
+		9C0291AB17902105007C44BA /* url.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = url.txt; sourceTree = "<group>"; };
 		9CBF6A751790068E00988B88 /* iBeeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBeeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CBF6A781790068E00988B88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9CBF6A7A1790068E00988B88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -64,9 +76,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C02919E179020A4007C44BA /* font */ = {
+			isa = PBXGroup;
+			children = (
+				9C02919F179020B9007C44BA /* DS Officina Serif-Bold.otf */,
+				9C0291A0179020B9007C44BA /* DS Officina Serif-Book.otf */,
+			);
+			name = font;
+			sourceTree = "<group>";
+		};
+		9C0291A3179020C5007C44BA /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				9C0291A5179020D7007C44BA /* Beeline_brand_guidelines_RU_p22-54.pdf */,
+			);
+			name = docs;
+			sourceTree = "<group>";
+		};
+		9C0291A4179020CC007C44BA /* json */ = {
+			isa = PBXGroup;
+			children = (
+				9C0291A7179020E6007C44BA /* faq_kg.json */,
+				9C0291A8179020E6007C44BA /* faq.json */,
+				9C0291AB17902105007C44BA /* url.txt */,
+			);
+			name = json;
+			sourceTree = "<group>";
+		};
 		9CBF6A6C1790068E00988B88 = {
 			isa = PBXGroup;
 			children = (
+				9C0291A4179020CC007C44BA /* json */,
+				9C0291A3179020C5007C44BA /* docs */,
+				9C02919E179020A4007C44BA /* font */,
 				9CBF6A7E1790068E00988B88 /* iBeeline */,
 				9CBF6A771790068E00988B88 /* Frameworks */,
 				9CBF6A761790068E00988B88 /* Products */,
@@ -184,6 +226,12 @@
 				9CBF6A991790068F00988B88 /* first@2x.png in Resources */,
 				9CBF6A9E1790068F00988B88 /* second.png in Resources */,
 				9CBF6AA01790068F00988B88 /* second@2x.png in Resources */,
+				9C0291A1179020B9007C44BA /* DS Officina Serif-Bold.otf in Resources */,
+				9C0291A2179020B9007C44BA /* DS Officina Serif-Book.otf in Resources */,
+				9C0291A6179020D7007C44BA /* Beeline_brand_guidelines_RU_p22-54.pdf in Resources */,
+				9C0291A9179020E6007C44BA /* faq_kg.json in Resources */,
+				9C0291AA179020E6007C44BA /* faq.json in Resources */,
+				9C0291AC17902105007C44BA /* url.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +370,7 @@
 				9CBF6AA51790068F00988B88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
