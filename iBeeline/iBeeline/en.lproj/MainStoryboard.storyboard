@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="996" y="-105"/>
         </scene>
-        <!--Tarifs View Controller - Root View Controller-->
+        <!--Table View Controller - Root View Controller-->
         <scene sceneID="nFx-DM-Qys">
             <objects>
-                <tableViewController id="umw-5D-28i" customClass="TarifsViewController" sceneMemberID="viewController">
+                <tableViewController id="umw-5D-28i" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="RpO-cX-l7z">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,26 +156,6 @@
     <resources>
         <image name="first.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="FAQDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FAQDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="wview" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="FAQViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FAQViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TarifsNavController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TarifsNavController.h"/>
-        </class>
-        <class className="TarifsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TarifsViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

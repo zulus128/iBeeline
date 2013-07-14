@@ -24,12 +24,15 @@
 		9CBF6A8D1790068F00988B88 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF6A8C1790068F00988B88 /* Default@2x.png */; };
 		9CBF6A8F1790068F00988B88 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF6A8E1790068F00988B88 /* Default-568h@2x.png */; };
 		9CBF6A921790068F00988B88 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF6A901790068F00988B88 /* MainStoryboard.storyboard */; };
-		9CBF6A951790068F00988B88 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF6A941790068F00988B88 /* FirstViewController.m */; };
 		9CBF6A971790068F00988B88 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF6A961790068F00988B88 /* first.png */; };
 		9CBF6A991790068F00988B88 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF6A981790068F00988B88 /* first@2x.png */; };
-		9CBF6A9C1790068F00988B88 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF6A9B1790068F00988B88 /* SecondViewController.m */; };
 		9CBF6A9E1790068F00988B88 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF6A9D1790068F00988B88 /* second.png */; };
 		9CBF6AA01790068F00988B88 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF6A9F1790068F00988B88 /* second@2x.png */; };
+		DD5D7C701792601800858CE7 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5D7C6F1792601800858CE7 /* FAQViewController.m */; };
+		DD5D7C7317927A8400858CE7 /* FAQDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5D7C7217927A8400858CE7 /* FAQDetailViewController.m */; };
+		DD5D7C78179284FC00858CE7 /* TarifsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5D7C77179284FC00858CE7 /* TarifsNavController.m */; };
+		DDAD9E79179288BB008A100B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDAD9E7B179288BB008A100B /* Localizable.strings */; };
+		DDAD9E8017928A50008A100B /* TarifsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD9E7F17928A50008A100B /* TarifsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,14 +58,21 @@
 		9CBF6A8C1790068F00988B88 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9CBF6A8E1790068F00988B88 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9CBF6A911790068F00988B88 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		9CBF6A931790068F00988B88 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		9CBF6A941790068F00988B88 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		9CBF6A961790068F00988B88 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = iBeeline/first.png; sourceTree = "<group>"; };
 		9CBF6A981790068F00988B88 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "iBeeline/first@2x.png"; sourceTree = "<group>"; };
-		9CBF6A9A1790068F00988B88 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		9CBF6A9B1790068F00988B88 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		9CBF6A9D1790068F00988B88 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = iBeeline/second.png; sourceTree = "<group>"; };
 		9CBF6A9F1790068F00988B88 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "iBeeline/second@2x.png"; sourceTree = "<group>"; };
+		DD5D7C6E1792601800858CE7 /* FAQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAQViewController.h; sourceTree = "<group>"; };
+		DD5D7C6F1792601800858CE7 /* FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQViewController.m; sourceTree = "<group>"; };
+		DD5D7C7117927A8400858CE7 /* FAQDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAQDetailViewController.h; sourceTree = "<group>"; };
+		DD5D7C7217927A8400858CE7 /* FAQDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQDetailViewController.m; sourceTree = "<group>"; };
+		DD5D7C76179284FC00858CE7 /* TarifsNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TarifsNavController.h; sourceTree = "<group>"; };
+		DD5D7C77179284FC00858CE7 /* TarifsNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TarifsNavController.m; sourceTree = "<group>"; };
+		DDAD9E7A179288BB008A100B /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DDAD9E7C179288D6008A100B /* ru */ = {isa = PBXFileReference; lastKnownFileType = file; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DDAD9E7D179289E4008A100B /* kk-KZ */ = {isa = PBXFileReference; lastKnownFileType = file; name = "kk-KZ"; path = "kk-KZ.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DDAD9E7E17928A50008A100B /* TarifsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TarifsViewController.h; sourceTree = "<group>"; };
+		DDAD9E7F17928A50008A100B /* TarifsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TarifsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,10 +166,14 @@
 				9CBF6A871790068F00988B88 /* AppDelegate.h */,
 				9CBF6A881790068F00988B88 /* AppDelegate.m */,
 				9CBF6A901790068F00988B88 /* MainStoryboard.storyboard */,
-				9CBF6A931790068F00988B88 /* FirstViewController.h */,
-				9CBF6A941790068F00988B88 /* FirstViewController.m */,
-				9CBF6A9A1790068F00988B88 /* SecondViewController.h */,
-				9CBF6A9B1790068F00988B88 /* SecondViewController.m */,
+				DD5D7C76179284FC00858CE7 /* TarifsNavController.h */,
+				DD5D7C77179284FC00858CE7 /* TarifsNavController.m */,
+				DDAD9E7E17928A50008A100B /* TarifsViewController.h */,
+				DDAD9E7F17928A50008A100B /* TarifsViewController.m */,
+				DD5D7C6E1792601800858CE7 /* FAQViewController.h */,
+				DD5D7C6F1792601800858CE7 /* FAQViewController.m */,
+				DD5D7C7117927A8400858CE7 /* FAQDetailViewController.h */,
+				DD5D7C7217927A8400858CE7 /* FAQDetailViewController.m */,
 				9CBF6A7F1790068F00988B88 /* Supporting Files */,
 			);
 			path = iBeeline;
@@ -168,6 +182,7 @@
 		9CBF6A7F1790068F00988B88 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DDAD9E7B179288BB008A100B /* Localizable.strings */,
 				9CBF6A801790068F00988B88 /* iBeeline-Info.plist */,
 				9CBF6A811790068F00988B88 /* InfoPlist.strings */,
 				9CBF6A841790068F00988B88 /* main.m */,
@@ -214,6 +229,9 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				it,
+				ru,
+				"kk-KZ",
 			);
 			mainGroup = 9CBF6A6C1790068E00988B88;
 			productRefGroup = 9CBF6A761790068E00988B88 /* Products */;
@@ -245,6 +263,7 @@
 				9C0291A9179020E6007C44BA /* faq_kg.json in Resources */,
 				9C0291AA179020E6007C44BA /* faq.json in Resources */,
 				9C0291AC17902105007C44BA /* url.txt in Resources */,
+				DDAD9E79179288BB008A100B /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,9 +276,11 @@
 			files = (
 				9CBF6A851790068F00988B88 /* main.m in Sources */,
 				9CBF6A891790068F00988B88 /* AppDelegate.m in Sources */,
-				9CBF6A951790068F00988B88 /* FirstViewController.m in Sources */,
-				9CBF6A9C1790068F00988B88 /* SecondViewController.m in Sources */,
 				9C127EE1179054010031C7B5 /* Common.m in Sources */,
+				DD5D7C701792601800858CE7 /* FAQViewController.m in Sources */,
+				DD5D7C7317927A8400858CE7 /* FAQDetailViewController.m in Sources */,
+				DD5D7C78179284FC00858CE7 /* TarifsNavController.m in Sources */,
+				DDAD9E8017928A50008A100B /* TarifsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +301,17 @@
 				9CBF6A911790068F00988B88 /* en */,
 			);
 			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		DDAD9E7B179288BB008A100B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDAD9E7A179288BB008A100B /* en */,
+				DDAD9E7C179288D6008A100B /* ru */,
+				DDAD9E7D179289E4008A100B /* kk-KZ */,
+			);
+			name = Localizable.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
