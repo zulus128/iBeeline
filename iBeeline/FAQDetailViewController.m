@@ -31,6 +31,10 @@
     
     [self.wview loadHTMLString:[[Common instance] getSelectedFAQtext] baseURL:nil];
 
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                          [UIFont fontWithName:@"DSOfficinaSerif-Book" size:16],UITextAttributeFont,
+                                                          nil] forState:UIControlStateNormal];
+
 }
 
 - (void)didReceiveMemoryWarning

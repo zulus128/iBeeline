@@ -33,6 +33,8 @@
 		DD5D7C78179284FC00858CE7 /* TarifsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5D7C77179284FC00858CE7 /* TarifsNavController.m */; };
 		DDAD9E79179288BB008A100B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDAD9E7B179288BB008A100B /* Localizable.strings */; };
 		DDAD9E8017928A50008A100B /* TarifsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD9E7F17928A50008A100B /* TarifsViewController.m */; };
+		DDAD9E8217929063008A100B /* tarifs.json in Resources */ = {isa = PBXBuildFile; fileRef = DDAD9E8117929063008A100B /* tarifs.json */; };
+		DDAD9E8517929E20008A100B /* TarifDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD9E8417929E20008A100B /* TarifDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,9 @@
 		DDAD9E7D179289E4008A100B /* kk-KZ */ = {isa = PBXFileReference; lastKnownFileType = file; name = "kk-KZ"; path = "kk-KZ.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DDAD9E7E17928A50008A100B /* TarifsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TarifsViewController.h; sourceTree = "<group>"; };
 		DDAD9E7F17928A50008A100B /* TarifsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TarifsViewController.m; sourceTree = "<group>"; };
+		DDAD9E8117929063008A100B /* tarifs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tarifs.json; sourceTree = "<group>"; };
+		DDAD9E8317929E20008A100B /* TarifDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TarifDetailViewController.h; sourceTree = "<group>"; };
+		DDAD9E8417929E20008A100B /* TarifDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TarifDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +114,7 @@
 		9C0291A4179020CC007C44BA /* json */ = {
 			isa = PBXGroup;
 			children = (
+				DDAD9E8117929063008A100B /* tarifs.json */,
 				9C0291A7179020E6007C44BA /* faq_kg.json */,
 				9C0291A8179020E6007C44BA /* faq.json */,
 				9C0291AB17902105007C44BA /* url.txt */,
@@ -170,6 +176,8 @@
 				DD5D7C77179284FC00858CE7 /* TarifsNavController.m */,
 				DDAD9E7E17928A50008A100B /* TarifsViewController.h */,
 				DDAD9E7F17928A50008A100B /* TarifsViewController.m */,
+				DDAD9E8317929E20008A100B /* TarifDetailViewController.h */,
+				DDAD9E8417929E20008A100B /* TarifDetailViewController.m */,
 				DD5D7C6E1792601800858CE7 /* FAQViewController.h */,
 				DD5D7C6F1792601800858CE7 /* FAQViewController.m */,
 				DD5D7C7117927A8400858CE7 /* FAQDetailViewController.h */,
@@ -264,6 +272,7 @@
 				9C0291AA179020E6007C44BA /* faq.json in Resources */,
 				9C0291AC17902105007C44BA /* url.txt in Resources */,
 				DDAD9E79179288BB008A100B /* Localizable.strings in Resources */,
+				DDAD9E8217929063008A100B /* tarifs.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +290,7 @@
 				DD5D7C7317927A8400858CE7 /* FAQDetailViewController.m in Sources */,
 				DD5D7C78179284FC00858CE7 /* TarifsNavController.m in Sources */,
 				DDAD9E8017928A50008A100B /* TarifsViewController.m in Sources */,
+				DDAD9E8517929E20008A100B /* TarifDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

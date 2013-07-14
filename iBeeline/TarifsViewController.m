@@ -7,6 +7,8 @@
 //
 
 #import "TarifsViewController.h"
+#import "Common.h"
+#import "TarifDetailViewController.h"
 
 @interface TarifsViewController ()
 
@@ -23,8 +25,8 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -41,6 +43,8 @@
     label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView=label;
+
+    self.title = NSLocalizedString(@"Tarifs", nil);
 
 }
 
@@ -59,18 +63,21 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [[Common instance] getTarifCnt];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Cell1";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
     
+    UILabel *label = (UILabel *)[cell viewWithTag:100];
+    [label setText:[[Common instance] getTarifName:indexPath.row]];
+    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
+
     return cell;
 }
 
@@ -117,13 +124,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [Common instance].selectedTarif = indexPath.row;
+    
+    TarifDetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"detailTarif"];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 @end
