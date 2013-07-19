@@ -136,10 +136,21 @@
 //- (NSString*) getTarifText:(int)num;
 //- (NSString*) getSelectedTarifText;
 
+- (BOOL) isBeeZone {
+    
+    NSArray* ar = [self.tarifjson objectForKey:TARIF_KEY];
+    NSNumber* t1 = [[ar objectAtIndex:self.selectedTarif] objectForKey:@"bt"];
+
+    return (t1.intValue > 0);
+}
+
 - (Zone*) getZoneSelected {
 
     NSArray* ar = [self.tarifjson objectForKey:TARIF_KEY];
     NSNumber* t = [[ar objectAtIndex:self.selectedTarif] objectForKey:@"t"];
+//    NSNumber* t1 = [[ar objectAtIndex:self.selectedTarif] objectForKey:@"bt"];
+    
+//    NSLog(@"%d, %d", t.intValue, t1.intValue);
 
     Zone* zon = [[Zone alloc] init];
     NSArray* dar = [self.tarifjson objectForKey:ZONE_KEY];

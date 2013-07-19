@@ -29,6 +29,7 @@
 - (NSString*) getSelectedTarifText;
 
 - (Zone*) getZoneSelected;
+- (BOOL) isBeeZone;
 
 @property (nonatomic, retain) NSArray* faqjson;
 @property (nonatomic, retain) NSDictionary* tarifjson;

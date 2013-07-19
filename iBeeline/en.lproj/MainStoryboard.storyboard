@@ -29,9 +29,9 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="eKg-2X-Do2" firstAttribute="leading" secondItem="FNK-CE-RTA" secondAttribute="leading" constant="20" type="default" id="WKA-XS-XRL"/>
-                                    <constraint firstAttribute="trailing" secondItem="eKg-2X-Do2" secondAttribute="trailing" constant="20" type="default" id="m42-BP-Lg4"/>
-                                    <constraint firstItem="eKg-2X-Do2" firstAttribute="top" secondItem="FNK-CE-RTA" secondAttribute="top" constant="11" id="mmh-Ww-hW4"/>
+                                    <constraint firstAttribute="trailing" secondItem="eKg-2X-Do2" secondAttribute="trailing" constant="20" type="default" id="FFU-Ox-Pcl"/>
+                                    <constraint firstItem="eKg-2X-Do2" firstAttribute="top" secondItem="FNK-CE-RTA" secondAttribute="top" constant="11" id="fkz-8S-KYr"/>
+                                    <constraint firstItem="eKg-2X-Do2" firstAttribute="leading" secondItem="FNK-CE-RTA" secondAttribute="leading" constant="20" type="default" id="zlv-Na-klp"/>
                                 </constraints>
                             </tableViewCell>
                         </prototypes>
@@ -71,9 +71,9 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="oqq-G4-jf3" firstAttribute="top" secondItem="POx-yt-xPn" secondAttribute="top" constant="11" id="0Hd-mu-DGk"/>
-                                    <constraint firstAttribute="trailing" secondItem="oqq-G4-jf3" secondAttribute="trailing" constant="20" type="default" id="GlG-h3-z39"/>
-                                    <constraint firstItem="oqq-G4-jf3" firstAttribute="leading" secondItem="POx-yt-xPn" secondAttribute="leading" constant="20" type="default" id="c8x-cx-KK5"/>
+                                    <constraint firstItem="oqq-G4-jf3" firstAttribute="leading" secondItem="POx-yt-xPn" secondAttribute="leading" constant="20" type="default" id="pZW-Qh-Nmg"/>
+                                    <constraint firstItem="oqq-G4-jf3" firstAttribute="top" secondItem="POx-yt-xPn" secondAttribute="top" constant="11" id="uEg-lf-AcF"/>
+                                    <constraint firstAttribute="trailing" secondItem="oqq-G4-jf3" secondAttribute="trailing" constant="20" type="default" id="wpv-o8-aMy"/>
                                 </constraints>
                             </tableViewCell>
                         </prototypes>
@@ -94,7 +94,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Dw-7u-0mT">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="WcU-CG-0Sr"/>
+                                    <constraint firstAttribute="width" constant="128" id="322-ID-hLt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Beeline">
@@ -104,10 +104,13 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="bt1:" destination="LCX-h8-46m" eventType="touchDown" id="C6U-1z-Tdt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZj-6g-Jd1">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="yn5-Ow-lge"/>
+                                    <constraint firstAttribute="width" constant="128" id="Syy-9N-7I3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button">
@@ -117,24 +120,27 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="bt2:" destination="LCX-h8-46m" eventType="touchDown" id="i8u-tC-FP5"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBC-NX-d22"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KZj-6g-Jd1" firstAttribute="baseline" secondItem="3Dw-7u-0mT" secondAttribute="baseline" type="default" id="0hM-TX-3IZ"/>
-                            <constraint firstItem="3Dw-7u-0mT" firstAttribute="top" secondItem="MAR-b5-WfG" secondAttribute="top" constant="10" id="C7t-ng-0Ek"/>
-                            <constraint firstItem="sBC-NX-d22" firstAttribute="top" secondItem="3Dw-7u-0mT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Gkg-LA-BFO"/>
-                            <constraint firstItem="sBC-NX-d22" firstAttribute="bottom" secondItem="MAR-b5-WfG" secondAttribute="bottom" type="default" id="IeN-gI-zGA"/>
-                            <constraint firstItem="sBC-NX-d22" firstAttribute="leading" secondItem="MAR-b5-WfG" secondAttribute="leading" type="default" id="VDr-aC-iwH"/>
-                            <constraint firstAttribute="trailing" secondItem="KZj-6g-Jd1" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ZhN-0r-bgm"/>
-                            <constraint firstItem="sBC-NX-d22" firstAttribute="trailing" secondItem="MAR-b5-WfG" secondAttribute="trailing" type="default" id="fPu-JD-C78"/>
-                            <constraint firstItem="3Dw-7u-0mT" firstAttribute="leading" secondItem="MAR-b5-WfG" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ibF-Nc-E9k"/>
+                            <constraint firstItem="sBC-NX-d22" firstAttribute="top" secondItem="3Dw-7u-0mT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="JlE-Ed-OyZ"/>
+                            <constraint firstItem="3Dw-7u-0mT" firstAttribute="top" secondItem="MAR-b5-WfG" secondAttribute="top" constant="10" id="LUM-GU-zLk"/>
+                            <constraint firstItem="sBC-NX-d22" firstAttribute="bottom" secondItem="MAR-b5-WfG" secondAttribute="bottom" type="default" id="d5L-lW-Ead"/>
+                            <constraint firstItem="3Dw-7u-0mT" firstAttribute="leading" secondItem="MAR-b5-WfG" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kEz-FB-gpH"/>
+                            <constraint firstAttribute="trailing" secondItem="KZj-6g-Jd1" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kKe-Ba-JiC"/>
+                            <constraint firstItem="3Dw-7u-0mT" firstAttribute="baseline" secondItem="KZj-6g-Jd1" secondAttribute="baseline" type="default" id="uJL-12-hbk"/>
+                            <constraint firstItem="sBC-NX-d22" firstAttribute="trailing" secondItem="MAR-b5-WfG" secondAttribute="trailing" type="default" id="vpk-UN-J9H"/>
+                            <constraint firstItem="sBC-NX-d22" firstAttribute="leading" secondItem="MAR-b5-WfG" secondAttribute="leading" type="default" id="xll-9h-HLL"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="but1" destination="3Dw-7u-0mT" id="6cw-G5-95O"/>
-                        <outlet property="but2" destination="KZj-6g-Jd1" id="xWX-HY-uVI"/>
+                        <outlet property="but1" destination="3Dw-7u-0mT" id="qSC-9o-MTv"/>
+                        <outlet property="but2" destination="KZj-6g-Jd1" id="3yj-Yf-IiF"/>
                         <outlet property="sv" destination="sBC-NX-d22" id="oBC-hf-P1J"/>
                     </connections>
                 </viewController>
@@ -173,10 +179,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rlI-Bm-8xh" firstAttribute="bottom" secondItem="yqO-jb-83Y" secondAttribute="bottom" type="default" id="HLr-7R-Grc"/>
-                            <constraint firstItem="rlI-Bm-8xh" firstAttribute="trailing" secondItem="yqO-jb-83Y" secondAttribute="trailing" type="default" id="e1Y-RV-HSY"/>
-                            <constraint firstItem="rlI-Bm-8xh" firstAttribute="leading" secondItem="yqO-jb-83Y" secondAttribute="leading" type="default" id="hyN-hY-SJa"/>
-                            <constraint firstItem="rlI-Bm-8xh" firstAttribute="top" secondItem="yqO-jb-83Y" secondAttribute="top" type="default" id="sAH-ps-t6g"/>
+                            <constraint firstItem="rlI-Bm-8xh" firstAttribute="leading" secondItem="yqO-jb-83Y" secondAttribute="leading" type="default" id="5wT-kQ-nBH"/>
+                            <constraint firstItem="rlI-Bm-8xh" firstAttribute="bottom" secondItem="yqO-jb-83Y" secondAttribute="bottom" type="default" id="IzW-CP-amC"/>
+                            <constraint firstItem="rlI-Bm-8xh" firstAttribute="top" secondItem="yqO-jb-83Y" secondAttribute="top" type="default" id="n95-pD-Ci0"/>
+                            <constraint firstItem="rlI-Bm-8xh" firstAttribute="trailing" secondItem="yqO-jb-83Y" secondAttribute="trailing" type="default" id="t6o-NG-azI"/>
                         </constraints>
                     </view>
                     <connections>
@@ -242,6 +248,8 @@
         <class className="TarifDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TarifDetailViewController.h"/>
             <relationships>
+                <relationship kind="action" name="bt1:"/>
+                <relationship kind="action" name="bt2:"/>
                 <relationship kind="outlet" name="but1" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="but2" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="sv" candidateClass="UIScrollView"/>

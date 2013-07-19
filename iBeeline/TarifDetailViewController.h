@@ -7,6 +7,7 @@
 //
 
 #define FONTSIZE 30
+#define LFONTSIZE 16
 
 #import <UIKit/UIKit.h>
 
@@ -16,5 +17,8 @@
 
 @property(nonatomic, retain) IBOutlet UIButton* but1;
 @property(nonatomic, retain) IBOutlet UIButton* but2;
+
+-(IBAction) bt1:(id) sender;
+-(IBAction) bt2:(id) sender;
 
 @end
