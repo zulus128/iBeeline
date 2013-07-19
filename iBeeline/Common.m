@@ -7,6 +7,7 @@
 //
 
 #import "Common.h"
+#import "Zone.h"
 
 @implementation Common
 
@@ -134,5 +135,34 @@
 
 //- (NSString*) getTarifText:(int)num;
 //- (NSString*) getSelectedTarifText;
+
+- (Zone*) getZoneSelected {
+
+    NSArray* ar = [self.tarifjson objectForKey:TARIF_KEY];
+    NSNumber* t = [[ar objectAtIndex:self.selectedTarif] objectForKey:@"t"];
+
+    Zone* zon = [[Zone alloc] init];
+    NSArray* dar = [self.tarifjson objectForKey:ZONE_KEY];
+
+    for(id ob in dar) {
+//        NSLog(@"id = %@", [ob objectForKey:@"id"]);
+    
+        if(((NSNumber*)[ob objectForKey:@"id"]).intValue == t.intValue) {
+            
+            zon.input = ((NSNumber*)[ob objectForKey:@"input"]).floatValue;
+            zon.output = ((NSNumber*)[ob objectForKey:@"out"]).floatValue;
+            zon.loc = ((NSNumber*)[ob objectForKey:@"loc"]).floatValue;
+            zon.okg = ((NSNumber*)[ob objectForKey:@"okg"]).floatValue;
+            zon.gprs = ((NSNumber*)[ob objectForKey:@"gprs"]).floatValue;
+            zon.sms = ((NSNumber*)[ob objectForKey:@"sms"]).floatValue;
+
+
+        }
+    }
+    
+    
+    return zon;
+
+}
 
 @end

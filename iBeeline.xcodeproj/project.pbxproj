@@ -14,6 +14,7 @@
 		9C0291AA179020E6007C44BA /* faq.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C0291A8179020E6007C44BA /* faq.json */; };
 		9C0291AC17902105007C44BA /* url.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9C0291AB17902105007C44BA /* url.txt */; };
 		9C127EE1179054010031C7B5 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C127EE0179054010031C7B5 /* Common.m */; };
+		9CB7ED591798FD7B00628310 /* Zone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB7ED581798FD7B00628310 /* Zone.m */; };
 		9CBF6A791790068E00988B88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBF6A781790068E00988B88 /* UIKit.framework */; };
 		9CBF6A7B1790068E00988B88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBF6A7A1790068E00988B88 /* Foundation.framework */; };
 		9CBF6A7D1790068E00988B88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBF6A7C1790068E00988B88 /* CoreGraphics.framework */; };
@@ -46,6 +47,8 @@
 		9C0291AB17902105007C44BA /* url.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = url.txt; sourceTree = "<group>"; };
 		9C127EDF179054010031C7B5 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		9C127EE0179054010031C7B5 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		9CB7ED571798FD7B00628310 /* Zone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zone.h; sourceTree = "<group>"; };
+		9CB7ED581798FD7B00628310 /* Zone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zone.m; sourceTree = "<group>"; };
 		9CBF6A751790068E00988B88 /* iBeeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBeeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CBF6A781790068E00988B88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9CBF6A7A1790068E00988B88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -70,9 +73,9 @@
 		DD5D7C7217927A8400858CE7 /* FAQDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQDetailViewController.m; sourceTree = "<group>"; };
 		DD5D7C76179284FC00858CE7 /* TarifsNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TarifsNavController.h; sourceTree = "<group>"; };
 		DD5D7C77179284FC00858CE7 /* TarifsNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TarifsNavController.m; sourceTree = "<group>"; };
-		DDAD9E7A179288BB008A100B /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DDAD9E7C179288D6008A100B /* ru */ = {isa = PBXFileReference; lastKnownFileType = file; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DDAD9E7D179289E4008A100B /* kk-KZ */ = {isa = PBXFileReference; lastKnownFileType = file; name = "kk-KZ"; path = "kk-KZ.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DDAD9E7A179288BB008A100B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DDAD9E7C179288D6008A100B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DDAD9E7D179289E4008A100B /* kk-KZ */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "kk-KZ"; path = "kk-KZ.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DDAD9E7E17928A50008A100B /* TarifsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TarifsViewController.h; sourceTree = "<group>"; };
 		DDAD9E7F17928A50008A100B /* TarifsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TarifsViewController.m; sourceTree = "<group>"; };
 		DDAD9E8117929063008A100B /* tarifs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tarifs.json; sourceTree = "<group>"; };
@@ -183,6 +186,8 @@
 				DD5D7C7117927A8400858CE7 /* FAQDetailViewController.h */,
 				DD5D7C7217927A8400858CE7 /* FAQDetailViewController.m */,
 				9CBF6A7F1790068F00988B88 /* Supporting Files */,
+				9CB7ED571798FD7B00628310 /* Zone.h */,
+				9CB7ED581798FD7B00628310 /* Zone.m */,
 			);
 			path = iBeeline;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				DD5D7C78179284FC00858CE7 /* TarifsNavController.m in Sources */,
 				DDAD9E8017928A50008A100B /* TarifsViewController.m in Sources */,
 				DDAD9E8517929E20008A100B /* TarifDetailViewController.m in Sources */,
+				9CB7ED591798FD7B00628310 /* Zone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

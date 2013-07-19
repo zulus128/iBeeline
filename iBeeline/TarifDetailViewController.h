@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Zul. All rights reserved.
 //
 
+#define FONTSIZE 30
+
 #import <UIKit/UIKit.h>
 
 @interface TarifDetailViewController : UIViewController

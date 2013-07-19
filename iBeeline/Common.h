@@ -7,6 +7,9 @@
 //
 
 #define TARIF_KEY @"c"
+#define ZONE_KEY @"t"
+
+@class Zone;
 
 @interface Common : NSObject {
     
@@ -24,6 +27,8 @@
 - (NSString*) getSelectedTarifName;
 - (NSString*) getTarifText:(int)num;
 - (NSString*) getSelectedTarifText;
+
+- (Zone*) getZoneSelected;
 
 @property (nonatomic, retain) NSArray* faqjson;
 @property (nonatomic, retain) NSDictionary* tarifjson;
