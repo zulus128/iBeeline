@@ -17,4 +17,6 @@
 @property (assign, readwrite) float gprs;
 @property (assign, readwrite) float sms;
 
+@property (nonatomic, retain) NSArray* services;
+
 @end

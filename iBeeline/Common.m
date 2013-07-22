@@ -144,13 +144,20 @@
     return (t1.intValue > 0);
 }
 
-- (Zone*) getZoneSelected {
+- (Zone*) getBeelineZoneSelected {
+    
+    return [self getZoneSelected:YES];
+}
+
+- (Zone*) getOtherZoneSelected {
+    
+    return [self getZoneSelected:NO];
+}
+
+- (Zone*) getZoneSelected:(BOOL)z {
 
     NSArray* ar = [self.tarifjson objectForKey:TARIF_KEY];
-    NSNumber* t = [[ar objectAtIndex:self.selectedTarif] objectForKey:@"t"];
-//    NSNumber* t1 = [[ar objectAtIndex:self.selectedTarif] objectForKey:@"bt"];
-    
-//    NSLog(@"%d, %d", t.intValue, t1.intValue);
+    NSNumber* t = [[ar objectAtIndex:self.selectedTarif] objectForKey:z?@"bt":@"t"];
 
     Zone* zon = [[Zone alloc] init];
     NSArray* dar = [self.tarifjson objectForKey:ZONE_KEY];
@@ -171,9 +178,24 @@
         }
     }
     
+    NSArray* at = [[ar objectAtIndex:self.selectedTarif] objectForKey:z?@"bs":@"s"];
+    zon.services = at;
     
     return zon;
 
 }
+
+- (NSString*) getServiceName:(int)num {
+    
+    NSArray* ar = [self.tarifjson objectForKey:SERVICE_KEY];
+
+    for(id ob in ar)
+        if(((NSNumber*)[ob objectForKey:@"id"]).intValue == num)
+            return [ob objectForKey:NSLocalizedString(@"lang", nil)];
+    
+    return @"...";
+
+}
+
 
 @end

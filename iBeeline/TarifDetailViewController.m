@@ -28,11 +28,16 @@
 -(IBAction) bt1:(id) sender {
     
     NSLog(@"but1");
+    
+    [self fillContent:YES];
+
 }
 
 -(IBAction) bt2:(id) sender {
 
     NSLog(@"but2");
+
+    [self fillContent:NO];
 
 }
 
@@ -53,14 +58,14 @@
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView=label;
 
-    
+    float top;
     if([Common instance].isBeeZone) {
         
         self.but1.enabled = YES;
         self.but2.enabled = YES;
         self.but1.hidden = NO;
         self.but2.hidden = NO;
-        self.sv.frame = CGRectMake(0, 61, 320, 487);
+        top = 61.0f;
     }
     else {
 
@@ -68,13 +73,33 @@
         self.but2.enabled = NO;
         self.but1.hidden = YES;
         self.but2.hidden = YES;
-        self.sv.frame = CGRectMake(0, 0, 320, 548);
-
+        top = 0.0f;
     }
 
+    for(NSLayoutConstraint *constraint in self.view.constraints) {
+        
+        if(constraint.firstAttribute == NSLayoutAttributeTop &&
+           constraint.firstItem == self.sv && constraint.secondItem == self.view) {
+            
+//            NSLog(@"found!");
+            constraint.constant = top;
+        }
+    }
     
+    [self.but2 setTitle: NSLocalizedString(@"beeminus", nil) forState:UIControlStateNormal];
+
+    [self fillContent:YES];
     
-    Zone* zo = [[Common instance] getZoneSelected];
+}
+
+-(void) fillContent:(BOOL)nb {
+
+    for (UIView *subview in self.sv.subviews) {
+        
+        [subview removeFromSuperview];
+    }
+    
+    Zone* zo = nb?[[Common instance] getBeelineZoneSelected]:[[Common instance] getOtherZoneSelected];
     
     int y = 50;
     
@@ -98,7 +123,7 @@
     sign1.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
     sign1.text = NSLocalizedString(@"min", nil);
     [self.sv addSubview:sign1];
-
+    
     UILabel* loct = [[UILabel alloc] initWithFrame:CGRectMake(200, y - 40, 100, 50)];
     loct.backgroundColor = [UIColor clearColor];
     loct.textColor=[UIColor blackColor];
@@ -119,7 +144,7 @@
     sign2.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
     sign2.text = NSLocalizedString(@"min", nil);
     [self.sv addSubview:sign2];
-
+    
     y += 80;
     
     UILabel* outpt = [[UILabel alloc] initWithFrame:CGRectMake(40, y - 40, 120, 50)];
@@ -142,7 +167,7 @@
     sign3.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
     sign3.text = NSLocalizedString(@"min", nil);
     [self.sv addSubview:sign3];
-
+    
     UILabel* inpt = [[UILabel alloc] initWithFrame:CGRectMake(200, y - 40, 100, 50)];
     inpt.backgroundColor = [UIColor clearColor];
     inpt.textColor=[UIColor blackColor];
@@ -163,7 +188,7 @@
     sign4.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
     sign4.text = NSLocalizedString(@"min", nil);
     [self.sv addSubview:sign4];
-
+    
     y += 80;
     
     UILabel* smst = [[UILabel alloc] initWithFrame:CGRectMake(40, y - 40, 100, 50)];
@@ -186,7 +211,7 @@
     sign5.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
     sign5.text = NSLocalizedString(@"sign", nil);
     [self.sv addSubview:sign5];
-
+    
     UILabel* gprst = [[UILabel alloc] initWithFrame:CGRectMake(200, y - 40, 100, 50)];
     gprst.backgroundColor = [UIColor clearColor];
     gprst.textColor=[UIColor blackColor];
@@ -208,6 +233,29 @@
     sign6.text = NSLocalizedString(@"sign", nil);
     [self.sv addSubview:sign6];
     
+    y += 60;
+
+    for (NSNumber* i in zo.services) {
+        
+//        NSLog(@"serv = %@", i);
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        button.tag = i.intValue;
+        [button addTarget:self action:@selector(aMethod:) forControlEvents:UIControlEventTouchDown];
+        [button setTitle:[[Common instance] getServiceName:i.intValue] forState:UIControlStateNormal];
+        button.frame = CGRectMake(20.0, y, 280.0, 40.0);
+        [self.sv addSubview:button];
+        
+        y += 40;
+
+    }
+
+    self.sv.contentSize = CGSizeMake(320, y + 20);
+}
+
+-(void) aMethod:(id) sender {
+
+    NSLog(@"serv = %d", ((UIButton*)sender).tag);
+
 }
 
 - (void)didReceiveMemoryWarning

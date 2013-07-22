@@ -8,6 +8,7 @@
 
 #define TARIF_KEY @"c"
 #define ZONE_KEY @"t"
+#define SERVICE_KEY @"s"
 
 @class Zone;
 
@@ -28,8 +29,12 @@
 - (NSString*) getTarifText:(int)num;
 - (NSString*) getSelectedTarifText;
 
-- (Zone*) getZoneSelected;
+- (Zone*) getBeelineZoneSelected;
+- (Zone*) getOtherZoneSelected;
+
 - (BOOL) isBeeZone;
+
+- (NSString*) getServiceName:(int)num;
 
 @property (nonatomic, retain) NSArray* faqjson;
 @property (nonatomic, retain) NSDictionary* tarifjson;
