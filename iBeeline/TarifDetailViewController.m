@@ -9,6 +9,7 @@
 #import "TarifDetailViewController.h"
 #import "Common.h"
 #import "Zone.h"
+#import "ServiceDetailViewController.h"
 
 @interface TarifDetailViewController ()
 
@@ -255,6 +256,11 @@
 -(void) aMethod:(id) sender {
 
     NSLog(@"serv = %d", ((UIButton*)sender).tag);
+
+    [Common instance].selectedService = ((UIButton*)sender).tag;
+    
+    ServiceDetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"detailService"];
+    [self.navigationController pushViewController:detailVC animated:YES];
 
 }
 

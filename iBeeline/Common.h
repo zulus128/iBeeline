@@ -35,10 +35,12 @@
 - (BOOL) isBeeZone;
 
 - (NSString*) getServiceName:(int)num;
+- (NSString*) getSelectedServiceText;
 
 @property (nonatomic, retain) NSArray* faqjson;
 @property (nonatomic, retain) NSDictionary* tarifjson;
 @property (assign, readwrite) int selectedFAQ;
 @property (assign, readwrite) int selectedTarif;
+@property (assign, readwrite) int selectedService;
 
 @end

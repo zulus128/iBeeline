@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C01106B179D32510067A6C7 /* ServiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C01106A179D32510067A6C7 /* ServiceDetailViewController.m */; };
 		9C0291A1179020B9007C44BA /* DS Officina Serif-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C02919F179020B9007C44BA /* DS Officina Serif-Bold.otf */; };
 		9C0291A2179020B9007C44BA /* DS Officina Serif-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C0291A0179020B9007C44BA /* DS Officina Serif-Book.otf */; };
 		9C0291A6179020D7007C44BA /* Beeline_brand_guidelines_RU_p22-54.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9C0291A5179020D7007C44BA /* Beeline_brand_guidelines_RU_p22-54.pdf */; };
@@ -39,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C011069179D32510067A6C7 /* ServiceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceDetailViewController.h; sourceTree = "<group>"; };
+		9C01106A179D32510067A6C7 /* ServiceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceDetailViewController.m; sourceTree = "<group>"; };
 		9C02919F179020B9007C44BA /* DS Officina Serif-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS Officina Serif-Bold.otf"; sourceTree = "<group>"; };
 		9C0291A0179020B9007C44BA /* DS Officina Serif-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS Officina Serif-Book.otf"; sourceTree = "<group>"; };
 		9C0291A5179020D7007C44BA /* Beeline_brand_guidelines_RU_p22-54.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Beeline_brand_guidelines_RU_p22-54.pdf"; sourceTree = "<group>"; };
@@ -181,13 +184,15 @@
 				DDAD9E7F17928A50008A100B /* TarifsViewController.m */,
 				DDAD9E8317929E20008A100B /* TarifDetailViewController.h */,
 				DDAD9E8417929E20008A100B /* TarifDetailViewController.m */,
+				9C011069179D32510067A6C7 /* ServiceDetailViewController.h */,
+				9C01106A179D32510067A6C7 /* ServiceDetailViewController.m */,
 				DD5D7C6E1792601800858CE7 /* FAQViewController.h */,
 				DD5D7C6F1792601800858CE7 /* FAQViewController.m */,
 				DD5D7C7117927A8400858CE7 /* FAQDetailViewController.h */,
 				DD5D7C7217927A8400858CE7 /* FAQDetailViewController.m */,
-				9CBF6A7F1790068F00988B88 /* Supporting Files */,
 				9CB7ED571798FD7B00628310 /* Zone.h */,
 				9CB7ED581798FD7B00628310 /* Zone.m */,
+				9CBF6A7F1790068F00988B88 /* Supporting Files */,
 			);
 			path = iBeeline;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 				DDAD9E8017928A50008A100B /* TarifsViewController.m in Sources */,
 				DDAD9E8517929E20008A100B /* TarifDetailViewController.m in Sources */,
 				9CB7ED591798FD7B00628310 /* Zone.m in Sources */,
+				9C01106B179D32510067A6C7 /* ServiceDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

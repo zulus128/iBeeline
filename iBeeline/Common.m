@@ -49,7 +49,7 @@
         NSString *tarifs= [NSString stringWithContentsOfFile:tarifPath encoding:NSUTF8StringEncoding error:nil];
 //        NSLog(@"tarifs = %@", tarifs);
         NSString* tars = [tarifs stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
-        tars = [tars stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+        tars = [tars stringByReplacingOccurrencesOfString:@"\n" withString:@" &lt;br&gt;"];
 //        NSLog(@"tars = %@", tars);
         NSData* tardata = [tars dataUsingEncoding:NSUTF8StringEncoding];
         NSError* error;
@@ -192,6 +192,18 @@
     for(id ob in ar)
         if(((NSNumber*)[ob objectForKey:@"id"]).intValue == num)
             return [ob objectForKey:NSLocalizedString(@"lang", nil)];
+    
+    return @"...";
+
+}
+
+- (NSString*) getSelectedServiceText {
+    
+    NSArray* ar = [self.tarifjson objectForKey:SERVICE_KEY];
+    
+    for(id ob in ar)
+        if(((NSNumber*)[ob objectForKey:@"id"]).intValue == self.selectedService)
+            return [ob objectForKey:NSLocalizedString(@"tlang", nil)];
     
     return @"...";
 
