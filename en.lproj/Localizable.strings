@@ -18,3 +18,5 @@
 "min" = "$/мин.";
 "sign" = "$";
 "beeminus" = "Остальные";
+"btn_roaming_on" = "Подключить";
+"btn_roaming_off" = "Отключить";

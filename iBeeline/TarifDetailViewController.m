@@ -59,6 +59,8 @@
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView=label;
 
+    self.title = [[Common instance] getSelectedTarifName];
+
     float top;
     if([Common instance].isBeeZone) {
         
@@ -88,6 +90,8 @@
     }
     
     [self.but2 setTitle: NSLocalizedString(@"beeminus", nil) forState:UIControlStateNormal];
+    self.but1.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+    self.but2.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
 
     [self fillContent:YES];
     
@@ -244,6 +248,7 @@
         [button addTarget:self action:@selector(aMethod:) forControlEvents:UIControlEventTouchDown];
         [button setTitle:[[Common instance] getServiceName:i.intValue] forState:UIControlStateNormal];
         button.frame = CGRectMake(20.0, y, 280.0, 40.0);
+        button.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
         [self.sv addSubview:button];
         
         y += 40;

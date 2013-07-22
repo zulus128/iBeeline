@@ -48,8 +48,9 @@
 //        NSString* tarifs = [NSString stringWithContentsOfFile:tarifPath];
         NSString *tarifs= [NSString stringWithContentsOfFile:tarifPath encoding:NSUTF8StringEncoding error:nil];
 //        NSLog(@"tarifs = %@", tarifs);
-        NSString* tars = [tarifs stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
-        tars = [tars stringByReplacingOccurrencesOfString:@"\n" withString:@" &lt;br&gt;"];
+        NSString* tars = [tarifs stringByReplacingOccurrencesOfString:@"\r" withString:@"          "];
+//        NSLog(@"%@", tars);
+        tars = [tars stringByReplacingOccurrencesOfString:@"\n" withString:@"          "];
 //        NSLog(@"tars = %@", tars);
         NSData* tardata = [tars dataUsingEncoding:NSUTF8StringEncoding];
         NSError* error;
@@ -105,13 +106,30 @@
 
 - (NSString*) getFAQtext:(int)num {
     
-//    NSArray* vals = [self.faqjson allValues];
-    return [[self.faqjson objectAtIndex:num] objectForKey:@"text"];
+    NSString *myHTML = [NSString stringWithFormat:@"<html> \n"
+                        "<head> \n"
+                        "<style type=\"text/css\"> \n"
+                        "body {font-family: \"%@\"; font-size: %@;}\n"
+                        "</style> \n"
+                        "</head> \n"
+                        "<body>%@</body> \n"
+                        "</html>", @"DSOfficinaSerif-Book", [NSNumber numberWithInt:16], [[self.faqjson objectAtIndex:num] objectForKey:@"text"]];
+    return myHTML;
+
 }
 
 - (NSString*) getSelectedFAQtext {
     
-    return [[self.faqjson objectAtIndex:self.selectedFAQ] objectForKey:@"text"];
+    NSString *myHTML = [NSString stringWithFormat:@"<html> \n"
+                        "<head> \n"
+                        "<style type=\"text/css\"> \n"
+                        "body {font-family: \"%@\"; font-size: %@;}\n"
+                        "</style> \n"
+                        "</head> \n"
+                        "<body>%@</body> \n"
+                        "</html>", @"DSOfficinaSerif-Book", [NSNumber numberWithInt:16], [[self.faqjson objectAtIndex:self.selectedFAQ] objectForKey:@"text"]];
+    return myHTML;
+    
 }
 
 - (int) getTarifCnt {
@@ -188,24 +206,50 @@
 - (NSString*) getServiceName:(int)num {
     
     NSArray* ar = [self.tarifjson objectForKey:SERVICE_KEY];
-
+    
     for(id ob in ar)
         if(((NSNumber*)[ob objectForKey:@"id"]).intValue == num)
             return [ob objectForKey:NSLocalizedString(@"lang", nil)];
     
     return @"...";
-
+    
 }
 
-- (NSString*) getSelectedServiceText {
+- (NSString*) getSelectedServiceName {
     
     NSArray* ar = [self.tarifjson objectForKey:SERVICE_KEY];
     
     for(id ob in ar)
         if(((NSNumber*)[ob objectForKey:@"id"]).intValue == self.selectedService)
-            return [ob objectForKey:NSLocalizedString(@"tlang", nil)];
+            return [ob objectForKey:NSLocalizedString(@"lang", nil)];
     
     return @"...";
+    
+}
+
+- (NSString*) getSelectedServiceText {
+    
+    NSString* res = @"...";
+    NSArray* ar = [self.tarifjson objectForKey:SERVICE_KEY];
+    
+    for(id ob in ar)
+        if(((NSNumber*)[ob objectForKey:@"id"]).intValue == self.selectedService) {
+            
+            res = [ob objectForKey:NSLocalizedString(@"tlang", nil)];
+            break;
+        }
+    
+    res = [res stringByReplacingOccurrencesOfString:@"          " withString:@"<br/>"];
+
+    NSString *myHTML = [NSString stringWithFormat:@"<html> \n"
+                                   "<head> \n"
+                                   "<style type=\"text/css\"> \n"
+                                   "body {font-family: \"%@\"; font-size: %@;}\n"
+                                   "</style> \n"
+                                   "</head> \n"
+                                   "<body>%@</body> \n"
+                                   "</html>", @"DSOfficinaSerif-Book", [NSNumber numberWithInt:16], res];
+    return myHTML;
 
 }
 

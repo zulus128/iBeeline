@@ -158,8 +158,8 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmv-FV-Juc">
                                 <subviews>
-                                    <webView alpha="0.10000000000000014" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAm-vt-9H3">
-                                        <color key="backgroundColor" red="0.51428753400000005" green="0.20809868919999999" blue="0.068578597480000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAm-vt-9H3">
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" type="user" id="BuS-aR-1qW"/>
                                         </constraints>
@@ -168,6 +168,22 @@
                                         </connections>
                                     </webView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ei-2f-YHa">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="127" id="1pR-Cs-AX8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mfr-c5-7d1">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="127" id="bXb-dL-qUn"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -179,13 +195,15 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="aAm-vt-9H3" firstAttribute="centerX" secondItem="cmv-FV-Juc" secondAttribute="centerX" type="default" id="LNd-w7-7zn"/>
                                     <constraint firstItem="7ei-2f-YHa" firstAttribute="leading" secondItem="cmv-FV-Juc" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Mve-Jj-qlZ"/>
                                     <constraint firstItem="aAm-vt-9H3" firstAttribute="leading" secondItem="cmv-FV-Juc" secondAttribute="leading" type="default" id="Sq4-4i-DSj"/>
                                     <constraint firstItem="aAm-vt-9H3" firstAttribute="top" secondItem="cmv-FV-Juc" secondAttribute="top" type="user" id="X7L-Qx-xNC"/>
-                                    <constraint firstItem="aAm-vt-9H3" firstAttribute="centerX" secondItem="cmv-FV-Juc" secondAttribute="centerX" type="default" id="aUW-bg-V8C"/>
+                                    <constraint firstAttribute="bottom" secondItem="7ei-2f-YHa" secondAttribute="bottom" constant="30" type="user" id="cbd-kR-WZl"/>
                                     <constraint firstItem="7ei-2f-YHa" firstAttribute="top" secondItem="aAm-vt-9H3" secondAttribute="bottom" constant="24" type="user" id="d5z-CD-lqY"/>
                                     <constraint firstItem="aAm-vt-9H3" firstAttribute="trailing" secondItem="cmv-FV-Juc" secondAttribute="trailing" type="default" id="pll-Gj-TdH"/>
-                                    <constraint firstAttribute="bottom" secondItem="7ei-2f-YHa" secondAttribute="bottom" constant="451" id="qaF-49-J9h"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mfr-c5-7d1" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="rSy-BT-2Ud"/>
+                                    <constraint firstItem="Mfr-c5-7d1" firstAttribute="baseline" secondItem="7ei-2f-YHa" secondAttribute="baseline" type="default" id="s4W-l8-fQX"/>
                                     <constraint firstItem="aAm-vt-9H3" firstAttribute="top" secondItem="cmv-FV-Juc" secondAttribute="top" type="user" id="uxi-6U-f16"/>
                                 </constraints>
                             </scrollView>
@@ -199,6 +217,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="but1" destination="7ei-2f-YHa" id="XZz-Fg-BOt"/>
+                        <outlet property="but2" destination="Mfr-c5-7d1" id="bTL-7t-Nvr"/>
+                        <outlet property="sv" destination="cmv-FV-Juc" id="Azn-Hn-ebm"/>
                         <outlet property="wv" destination="aAm-vt-9H3" id="d5B-4i-Mtb"/>
                         <outlet property="wv_height" destination="BuS-aR-1qW" id="KNE-kR-gZk"/>
                     </connections>
@@ -291,6 +312,46 @@
     <resources>
         <image name="first.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="FAQDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FAQDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="wview" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="FAQViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FAQViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ServiceDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServiceDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="but1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="but2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sv" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="wv" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="wv_height" candidateClass="NSLayoutConstraint"/>
+            </relationships>
+        </class>
+        <class className="TarifDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TarifDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="bt1:"/>
+                <relationship kind="action" name="bt2:"/>
+                <relationship kind="outlet" name="but1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="but2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sv" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="TarifsNavController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TarifsNavController.h"/>
+        </class>
+        <class className="TarifsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TarifsViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

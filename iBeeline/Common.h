@@ -9,6 +9,7 @@
 #define TARIF_KEY @"c"
 #define ZONE_KEY @"t"
 #define SERVICE_KEY @"s"
+#define BUTTON_FONT 16
 
 @class Zone;
 
@@ -35,6 +36,7 @@
 - (BOOL) isBeeZone;
 
 - (NSString*) getServiceName:(int)num;
+- (NSString*) getSelectedServiceName;
 - (NSString*) getSelectedServiceText;
 
 @property (nonatomic, retain) NSArray* faqjson;
