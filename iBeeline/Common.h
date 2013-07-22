@@ -30,6 +30,8 @@
 - (NSString*) getTarifText:(int)num;
 - (NSString*) getSelectedTarifText;
 
+- (void) setSelectedTarifNum:(NSString*)s;
+
 - (Zone*) getBeelineZoneSelected;
 - (Zone*) getOtherZoneSelected;
 

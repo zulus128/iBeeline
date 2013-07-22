@@ -45,7 +45,15 @@
     self.navigationItem.titleView=label;
 
     self.title = NSLocalizedString(@"Tarifs", nil);
+    
+//    UISearchBar* searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+//    searchBar.delegate = self;
+//    self.tableView.tableHeaderView = searchBar;
 
+    self.list = [NSMutableArray array];
+    for(int i = 0; i < [[Common instance] getTarifCnt]; i++)
+        [self.list addObject:[[Common instance] getTarifName:i]];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,21 +71,39 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return [[Common instance] getTarifCnt];
+
+//    return self.list.count;
+    
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        
+        return [self.filteredList count];
+        
+    } else {
+        
+        return [self.list count];
+        
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell1";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"tarifcell";
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
     
-    // Configure the cell...
     
     UILabel *label = (UILabel *)[cell viewWithTag:100];
-    [label setText:[[Common instance] getTarifName:indexPath.row]];
+//    [label setText:[self.list objectAtIndex:indexPath.row]];
     label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        label.text = [self.filteredList objectAtIndex:indexPath.row];
+    } else {
+        label.text = [self.list objectAtIndex:indexPath.row];
+    }
 
+    
     return cell;
 }
 
@@ -122,12 +148,38 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [Common instance].selectedTarif = indexPath.row;
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+//    [Common instance].selectedTarif = indexPath.row;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        
+        [[Common instance] setSelectedTarifNum:[self.filteredList objectAtIndex:indexPath.row]];
+    } else {
+
+        [[Common instance] setSelectedTarifNum:[self.list objectAtIndex:indexPath.row]];
+    }
+
     TarifDetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"detailTarif"];
     [self.navigationController pushViewController:detailVC animated:YES];
+}
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    
+    NSPredicate *resultPredicate = [NSPredicate
+                                    predicateWithFormat:@"SELF contains[cd] %@",
+                                    searchText];
+    
+    self.filteredList = [self.list filteredArrayUsingPredicate:resultPredicate];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
 }
 
 @end

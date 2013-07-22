@@ -54,9 +54,17 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="DPo-bY-FnV">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="umw-5D-28i" id="aak-Sh-w9i"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell1" id="POx-yt-xPn">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tarifcell" id="POx-yt-xPn">
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -77,10 +85,26 @@
                                 </constraints>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="umw-5D-28i" id="5pX-tf-L8d"/>
+                            <outlet property="delegate" destination="umw-5D-28i" id="EFG-JH-guC"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="yv1-ZO-5YZ"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="hJa-N2-iCI" id="5kE-cy-qEE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vpH-AG-0GC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="hJa-N2-iCI">
+                    <connections>
+                        <outlet property="delegate" destination="umw-5D-28i" id="qDY-8W-Daa"/>
+                        <outlet property="searchBar" destination="DPo-bY-FnV" id="r0R-Fg-h09"/>
+                        <outlet property="searchContentsController" destination="umw-5D-28i" id="AmW-ZZ-9bs"/>
+                        <outlet property="searchResultsDataSource" destination="umw-5D-28i" id="HeE-sh-3xu"/>
+                        <outlet property="searchResultsDelegate" destination="umw-5D-28i" id="QI4-gQ-Gce"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1033" y="595"/>
         </scene>
@@ -146,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOo-fF-Ykw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1207" y="639"/>
+            <point key="canvasLocation" x="1370" y="670"/>
         </scene>
         <!--Service Detail View Controller-->
         <scene sceneID="dY2-kg-XjZ">
@@ -226,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfc-Bq-kzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1396" y="674"/>
+            <point key="canvasLocation" x="1579" y="694"/>
         </scene>
         <!--Tarifs Nav Controller - Item-->
         <scene sceneID="emr-vX-Lvo">
@@ -271,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZb-fb-FAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1125" y="175"/>
+            <point key="canvasLocation" x="1339" y="3"/>
         </scene>
         <!--Navigation Controller - FAQ-->
         <scene sceneID="KTF-bs-EqC">

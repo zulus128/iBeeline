@@ -49,8 +49,10 @@
         NSString *tarifs= [NSString stringWithContentsOfFile:tarifPath encoding:NSUTF8StringEncoding error:nil];
 //        NSLog(@"tarifs = %@", tarifs);
         NSString* tars = [tarifs stringByReplacingOccurrencesOfString:@"\r" withString:@"          "];
+//        NSString* tars = [tarifs stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
 //        NSLog(@"%@", tars);
         tars = [tars stringByReplacingOccurrencesOfString:@"\n" withString:@"          "];
+//        tars = [tars stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
 //        NSLog(@"tars = %@", tars);
         NSData* tardata = [tars dataUsingEncoding:NSUTF8StringEncoding];
         NSError* error;
@@ -174,6 +176,9 @@
 
 - (Zone*) getZoneSelected:(BOOL)z {
 
+    if(![self isBeeZone])
+        z = NO;
+    
     NSArray* ar = [self.tarifjson objectForKey:TARIF_KEY];
     NSNumber* t = [[ar objectAtIndex:self.selectedTarif] objectForKey:z?@"bt":@"t"];
 
@@ -250,6 +255,18 @@
                                    "<body>%@</body> \n"
                                    "</html>", @"DSOfficinaSerif-Book", [NSNumber numberWithInt:16], res];
     return myHTML;
+
+}
+
+- (void) setSelectedTarifNum:(NSString*)s {
+    
+    NSArray* ar = [self.tarifjson objectForKey:TARIF_KEY];
+//    NSLog(@"%@", ar);
+    for(int i = 0; i < ar.count; i++)
+        if([[[ar objectAtIndex:i] objectForKey:NSLocalizedString(@"lang", nil)]isEqual:s]){
+            self.selectedTarif = i;
+            NSLog(@"%d", i);
+        }
 
 }
 
