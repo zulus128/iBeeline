@@ -54,6 +54,8 @@
     for(int i = 0; i < [[Common instance] getTarifCnt]; i++)
         [self.list addObject:[[Common instance] getTarifName:i]];
     
+    self.list = [self.list sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+
 }
 
 - (void)didReceiveMemoryWarning

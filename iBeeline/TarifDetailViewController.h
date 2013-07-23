@@ -8,6 +8,7 @@
 
 #define FONTSIZE 30
 #define LFONTSIZE 16
+#define SFONTSIZE 12
 
 #import <UIKit/UIKit.h>
 

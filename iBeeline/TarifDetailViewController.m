@@ -217,28 +217,55 @@
     sign5.text = NSLocalizedString(@"sign", nil);
     [self.sv addSubview:sign5];
     
-    UILabel* gprst = [[UILabel alloc] initWithFrame:CGRectMake(200, y - 40, 100, 50)];
-    gprst.backgroundColor = [UIColor clearColor];
-    gprst.textColor=[UIColor blackColor];
-    gprst.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
-    gprst.numberOfLines = 0;
-    gprst.text = NSLocalizedString(@"t_gprs", nil);
-    [self.sv addSubview:gprst];
-    UILabel* gprs = [[UILabel alloc] initWithFrame:CGRectMake(200, y, 70, 50)];
-    gprs.backgroundColor = [UIColor clearColor];
-    gprs.textColor=[UIColor blackColor];
-    gprs.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE];
-    gprs.text = [NSString stringWithFormat:@"%.1f", zo.gprs];
-    [self.sv addSubview:gprs];
-    size = [gprs.text sizeWithFont:[UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE]];
-    UILabel* sign6 = [[UILabel alloc] initWithFrame:CGRectMake(205 + size.width, y + 2, 100, 50)];
-    sign6.backgroundColor = [UIColor clearColor];
-    sign6.textColor=[UIColor blackColor];
-    sign6.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
-    sign6.text = NSLocalizedString(@"sign", nil);
-    [self.sv addSubview:sign6];
+    if(zo.gprs > 0) {
+        
+        UILabel* gprst = [[UILabel alloc] initWithFrame:CGRectMake(200, y - 40, 100, 50)];
+        gprst.backgroundColor = [UIColor clearColor];
+        gprst.textColor=[UIColor blackColor];
+        gprst.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
+        gprst.numberOfLines = 0;
+        gprst.text = NSLocalizedString(@"t_gprs", nil);
+        [self.sv addSubview:gprst];
+        UILabel* gprs = [[UILabel alloc] initWithFrame:CGRectMake(200, y, 70, 50)];
+        gprs.backgroundColor = [UIColor clearColor];
+        gprs.textColor=[UIColor blackColor];
+        gprs.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE];
+        gprs.text = [NSString stringWithFormat:@"%.1f", zo.gprs];
+        [self.sv addSubview:gprs];
+        size = [gprs.text sizeWithFont:[UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE]];
+        UILabel* sign6 = [[UILabel alloc] initWithFrame:CGRectMake(205 + size.width, y + 2, 100, 50)];
+        sign6.backgroundColor = [UIColor clearColor];
+        sign6.textColor=[UIColor blackColor];
+        sign6.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
+        sign6.text = NSLocalizedString(@"sign", nil);
+        [self.sv addSubview:sign6];
+        UILabel* sign61 = [[UILabel alloc] initWithFrame:CGRectMake(120 , y + 20, 200, 70)];
+        sign61.backgroundColor = [UIColor clearColor];
+        sign61.textColor=[UIColor blackColor];
+        sign61.numberOfLines = 0;
+        sign61.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:SFONTSIZE];
+        sign61.text = NSLocalizedString(@"access_gprs", nil);
+        [self.sv addSubview:sign61];
+        y += 30;
+    }
     
-    y += 60;
+    y += 50;
+
+    NSString* altname = [[Common instance] getAltNameSelected:nb];
+    NSLog(@"altname = %@", altname);
+    if((altname !=nil) && (![altname isEqualToString:@""])) {
+        
+        UILabel* alt = [[UILabel alloc] initWithFrame:CGRectMake(0, y, 320, 50)];
+        alt.backgroundColor = [UIColor colorWithRed:119/255 green:136/255 blue:153/255 alpha:0.1f];
+        alt.textColor=[UIColor blackColor];
+        alt.numberOfLines = 0;
+        alt.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
+        alt.text = [NSString stringWithFormat:@"          %@ \n          %@", NSLocalizedString(@"t_opsos", nil), altname];
+        [self.sv addSubview:alt];
+        y += 60;
+        
+    }
+    
 
     for (NSNumber* i in zo.services) {
         
@@ -255,6 +282,7 @@
 
     }
 
+    
     self.sv.contentSize = CGSizeMake(320, y + 20);
 }
 

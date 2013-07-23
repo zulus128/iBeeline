@@ -41,6 +41,8 @@
 - (NSString*) getSelectedServiceName;
 - (NSString*) getSelectedServiceText;
 
+- (NSString*) getAltNameSelected:(BOOL)z;
+
 @property (nonatomic, retain) NSArray* faqjson;
 @property (nonatomic, retain) NSDictionary* tarifjson;
 @property (assign, readwrite) int selectedFAQ;

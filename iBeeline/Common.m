@@ -174,6 +174,14 @@
     return [self getZoneSelected:NO];
 }
 
+- (NSString*) getAltNameSelected:(BOOL)z {
+
+    NSArray* ar = [self.tarifjson objectForKey:TARIF_KEY];
+    NSString* t = z?[[ar objectAtIndex:self.selectedTarif] objectForKey:@"bo"]:@"";
+    return t;
+
+}
+
 - (Zone*) getZoneSelected:(BOOL)z {
 
     if(![self isBeeZone])
