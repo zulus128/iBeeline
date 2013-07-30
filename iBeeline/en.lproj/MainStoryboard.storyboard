@@ -116,9 +116,10 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Dw-7u-0mT">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Dw-7u-0mT">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="322-ID-hLt"/>
+                                    <constraint firstAttribute="height" constant="44" id="phv-B4-cuf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Beeline">
@@ -132,7 +133,7 @@
                                     <action selector="bt1:" destination="LCX-h8-46m" eventType="touchDown" id="C6U-1z-Tdt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZj-6g-Jd1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZj-6g-Jd1">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="Syy-9N-7I3"/>
                                 </constraints>
@@ -152,12 +153,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="sBC-NX-d22" firstAttribute="top" secondItem="KZj-6g-Jd1" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7G6-C4-5u2"/>
+                            <constraint firstItem="3Dw-7u-0mT" firstAttribute="top" secondItem="KZj-6g-Jd1" secondAttribute="top" type="default" id="NtW-zi-1hE"/>
                             <constraint firstItem="sBC-NX-d22" firstAttribute="top" secondItem="3Dw-7u-0mT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Sip-hr-m0s"/>
+                            <constraint firstItem="KZj-6g-Jd1" firstAttribute="baseline" secondItem="3Dw-7u-0mT" secondAttribute="baseline" type="default" id="Xqo-GC-uUz"/>
                             <constraint firstItem="sBC-NX-d22" firstAttribute="bottom" secondItem="MAR-b5-WfG" secondAttribute="bottom" type="default" id="ZrA-cJ-IC1"/>
                             <constraint firstAttribute="trailing" secondItem="KZj-6g-Jd1" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kKe-Ba-JiC"/>
                             <constraint firstItem="sBC-NX-d22" firstAttribute="top" secondItem="MAR-b5-WfG" secondAttribute="top" constant="61" type="user" id="qf3-Ua-ft2"/>
                             <constraint firstItem="3Dw-7u-0mT" firstAttribute="leading" secondItem="MAR-b5-WfG" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="r61-0f-df4"/>
-                            <constraint firstItem="3Dw-7u-0mT" firstAttribute="baseline" secondItem="KZj-6g-Jd1" secondAttribute="baseline" type="default" id="uJL-12-hbk"/>
                             <constraint firstItem="sBC-NX-d22" firstAttribute="trailing" secondItem="MAR-b5-WfG" secondAttribute="trailing" type="default" id="vpk-UN-J9H"/>
                             <constraint firstItem="sBC-NX-d22" firstAttribute="leading" secondItem="MAR-b5-WfG" secondAttribute="leading" type="default" id="xll-9h-HLL"/>
                         </constraints>
@@ -191,7 +194,7 @@
                                             <outlet property="delegate" destination="Qtw-lm-tQ3" id="4Ta-a5-zAV"/>
                                         </connections>
                                     </webView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ei-2f-YHa">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ei-2f-YHa">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="127" id="1pR-Cs-AX8"/>
                                         </constraints>
@@ -204,7 +207,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mfr-c5-7d1">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mfr-c5-7d1">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="127" id="bXb-dL-qUn"/>
                                         </constraints>
@@ -223,8 +226,8 @@
                                     <constraint firstItem="7ei-2f-YHa" firstAttribute="leading" secondItem="cmv-FV-Juc" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Mve-Jj-qlZ"/>
                                     <constraint firstItem="aAm-vt-9H3" firstAttribute="leading" secondItem="cmv-FV-Juc" secondAttribute="leading" type="default" id="Sq4-4i-DSj"/>
                                     <constraint firstItem="aAm-vt-9H3" firstAttribute="top" secondItem="cmv-FV-Juc" secondAttribute="top" type="user" id="X7L-Qx-xNC"/>
-                                    <constraint firstAttribute="bottom" secondItem="7ei-2f-YHa" secondAttribute="bottom" constant="30" type="user" id="cbd-kR-WZl"/>
                                     <constraint firstItem="7ei-2f-YHa" firstAttribute="top" secondItem="aAm-vt-9H3" secondAttribute="bottom" constant="24" type="user" id="d5z-CD-lqY"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mfr-c5-7d1" secondAttribute="bottom" constant="451" id="f0w-wK-2W0"/>
                                     <constraint firstItem="aAm-vt-9H3" firstAttribute="trailing" secondItem="cmv-FV-Juc" secondAttribute="trailing" type="default" id="pll-Gj-TdH"/>
                                     <constraint firstAttribute="trailing" secondItem="Mfr-c5-7d1" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="rSy-BT-2Ud"/>
                                     <constraint firstItem="Mfr-c5-7d1" firstAttribute="baseline" secondItem="7ei-2f-YHa" secondAttribute="baseline" type="default" id="s4W-l8-fQX"/>
@@ -301,7 +304,7 @@
         <scene sceneID="KTF-bs-EqC">
             <objects>
                 <navigationController definesPresentationContext="YES" id="dqL-KC-dzH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="FAQ" image="first.png" id="R9P-yz-60z"/>
+                    <tabBarItem key="tabBarItem" title="FAQ" id="R9P-yz-60z"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jKM-j6-DYx">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -333,49 +336,6 @@
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="first.png" width="30" height="30"/>
-    </resources>
-    <classes>
-        <class className="FAQDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FAQDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="wview" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="FAQViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FAQViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ServiceDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServiceDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="but1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="but2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="sv" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="wv" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="wv_height" candidateClass="NSLayoutConstraint"/>
-            </relationships>
-        </class>
-        <class className="TarifDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TarifDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="bt1:"/>
-                <relationship kind="action" name="bt2:"/>
-                <relationship kind="outlet" name="but1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="but2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="sv" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="TarifsNavController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TarifsNavController.h"/>
-        </class>
-        <class className="TarifsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TarifsViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

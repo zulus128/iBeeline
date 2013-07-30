@@ -33,8 +33,14 @@
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                           [UIFont fontWithName:@"DSOfficinaSerif-Book" size:16],UITextAttributeFont,
+                                                          [UIColor blackColor], UITextAttributeTextColor,
                                                           nil] forState:UIControlStateNormal];
-
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                          [UIFont fontWithName:@"DSOfficinaSerif-Book" size:16],UITextAttributeFont,
+                                                          [UIColor blackColor], UITextAttributeTextColor,
+                                                          nil] forState:UIControlStateHighlighted];
+    
 }
 
 - (void)didReceiveMemoryWarning

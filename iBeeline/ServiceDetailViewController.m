@@ -31,7 +31,7 @@
     
     UILabel* label=[[UILabel alloc] initWithFrame:CGRectMake(0,0, self.navigationItem.titleView.frame.size.width, 40)];
     label.text = [[Common instance] getSelectedServiceName];
-    label.textColor=[UIColor whiteColor];
+    label.textColor=[UIColor blackColor];
     label.backgroundColor =[UIColor clearColor];
     label.adjustsFontSizeToFitWidth=YES;
     label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
@@ -58,8 +58,8 @@
 //    self.sv.bounces = NO;
     self.wv.scrollView.scrollEnabled = NO;
     
-    self.but1.hidden = NO;
-    self.but2.hidden = NO;
+//    self.but1.hidden = NO;
+//    self.but2.hidden = NO;
 
 }
 

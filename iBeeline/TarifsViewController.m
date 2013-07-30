@@ -9,6 +9,7 @@
 #import "TarifsViewController.h"
 #import "Common.h"
 #import "TarifDetailViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TarifsViewController ()
 
@@ -37,13 +38,14 @@
     
     UILabel* label=[[UILabel alloc] initWithFrame:CGRectMake(0,0, self.navigationItem.titleView.frame.size.width, 40)];
     label.text = NSLocalizedString(@"Tarifs", nil);
-    label.textColor=[UIColor whiteColor];
+    label.textColor=[UIColor blackColor];
     label.backgroundColor =[UIColor clearColor];
     label.adjustsFontSizeToFitWidth=YES;
     label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView=label;
 
+    
     self.title = NSLocalizedString(@"Tarifs", nil);
     
 //    UISearchBar* searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
@@ -55,6 +57,9 @@
         [self.list addObject:[[Common instance] getTarifName:i]];
     
     self.list = [self.list sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+//    self.searchDisplayController.searchBar.tintColor = RGBCOLOR(0xED, 0x77, 0x03);
+    self.searchDisplayController.searchBar.tintColor = RGBCOLOR(0xF0, 0xBE, 0x32);
 
 }
 
@@ -105,7 +110,12 @@
         label.text = [self.list objectAtIndex:indexPath.row];
     }
 
-    
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = RGBCOLOR(0xF0, 0xBE, 0x32);
+    bgColorView.layer.cornerRadius = 7;
+    bgColorView.layer.masksToBounds = YES;
+    [cell setSelectedBackgroundView:bgColorView];
+
     return cell;
 }
 

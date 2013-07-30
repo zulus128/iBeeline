@@ -9,6 +9,7 @@
 #import "FAQViewController.h"
 #import "Common.h"
 #import "FAQDetailViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface FAQViewController ()
 
@@ -32,12 +33,15 @@
     
     UILabel* label=[[UILabel alloc] initWithFrame:CGRectMake(0,0, self.navigationItem.titleView.frame.size.width, 40)];
     label.text=@"FAQ";
-    label.textColor=[UIColor whiteColor];
+    label.textColor=[UIColor blackColor];
     label.backgroundColor =[UIColor clearColor];
     label.adjustsFontSizeToFitWidth=YES;
     label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView=label;
+    self.navigationController.navigationBar.tintColor = RGBCOLOR(0xF0, 0xBE, 0x32);
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,6 +76,12 @@
     UILabel *label = (UILabel *)[cell viewWithTag:100];
     [label setText:[[Common instance] getFAQname:indexPath.row]];
     label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
+
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = RGBCOLOR(0xF0, 0xBE, 0x32);
+    bgColorView.layer.cornerRadius = 7;
+    bgColorView.layer.masksToBounds = YES;
+    [cell setSelectedBackgroundView:bgColorView];
 
     return cell;
 }

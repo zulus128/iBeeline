@@ -11,6 +11,8 @@
 #define SERVICE_KEY @"s"
 #define BUTTON_FONT 16
 
+#define RGBCOLOR(r, g, b) [UIColor colorWithRed:r/225.0f green:g/225.0f blue:b/225.0f alpha:1]
+
 @class Zone;
 
 @interface Common : NSObject {

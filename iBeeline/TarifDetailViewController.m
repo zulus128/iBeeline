@@ -10,6 +10,7 @@
 #import "Common.h"
 #import "Zone.h"
 #import "ServiceDetailViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TarifDetailViewController ()
 
@@ -47,17 +48,26 @@
     [super viewDidLoad];
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                        [UIFont fontWithName:@"DSOfficinaSerif-Book" size:16],UITextAttributeFont,
-                                        nil] forState:UIControlStateNormal];
+                                                          [UIFont fontWithName:@"DSOfficinaSerif-Book" size:14],UITextAttributeFont,
+                                                          [UIColor blackColor], UITextAttributeTextColor,
+                                                          nil] forState:UIControlStateNormal];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                          [UIFont fontWithName:@"DSOfficinaSerif-Book" size:14],UITextAttributeFont,
+                                                          [UIColor blackColor], UITextAttributeTextColor,
+                                                          nil] forState:UIControlStateHighlighted];
     
     UILabel* label=[[UILabel alloc] initWithFrame:CGRectMake(0,0, self.navigationItem.titleView.frame.size.width, 40)];
     label.text = [[Common instance] getSelectedTarifName];
-    label.textColor=[UIColor whiteColor];
+    label.textColor=[UIColor blackColor];
     label.backgroundColor =[UIColor clearColor];
     label.adjustsFontSizeToFitWidth=YES;
     label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView=label;
+
+    
+//    self.navigationController.navigationItem.backBarButtonItem.tintColor = RGBCOLOR(0xED, 0x77, 0x03);
+    
 
     self.title = [[Common instance] getSelectedTarifName];
 
@@ -93,6 +103,7 @@
     self.but1.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
     self.but2.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
 
+    
     [self fillContent:YES];
     
 }
@@ -103,6 +114,17 @@
         
         [subview removeFromSuperview];
     }
+    
+    [self.but1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.but1 setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    [self.but1 setBackgroundColor:nb?RGBCOLOR(0xF0, 0xBE, 0x32):RGBCOLOR(0xD0, 0xC8, 0xBA)];
+    self.but1.layer.cornerRadius = 8;
+    
+    [self.but2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.but2 setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    [self.but2 setBackgroundColor:nb?RGBCOLOR(0xD0, 0xC8, 0xBA):RGBCOLOR(0xF0, 0xBE, 0x32)];
+    self.but2.layer.cornerRadius = 8;
+    
     
     Zone* zo = nb?[[Common instance] getBeelineZoneSelected]:[[Common instance] getOtherZoneSelected];
     
@@ -252,11 +274,11 @@
     y += 50;
 
     NSString* altname = [[Common instance] getAltNameSelected:nb];
-    NSLog(@"altname = %@", altname);
+//    NSLog(@"altname = %@", altname);
     if((altname !=nil) && (![altname isEqualToString:@""])) {
         
         UILabel* alt = [[UILabel alloc] initWithFrame:CGRectMake(0, y, 320, 50)];
-        alt.backgroundColor = [UIColor colorWithRed:119/255 green:136/255 blue:153/255 alpha:0.1f];
+        alt.backgroundColor = RGBCOLOR(0xD0, 0xC8, 0xBA);//[UIColor colorWithRed:119/255 green:136/255 blue:153/255 alpha:0.1f];
         alt.textColor=[UIColor blackColor];
         alt.numberOfLines = 0;
         alt.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
@@ -270,20 +292,41 @@
     for (NSNumber* i in zo.services) {
         
 //        NSLog(@"serv = %@", i);
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+        [button setBackgroundColor:RGBCOLOR(0xF0, 0xBE, 0x32)];
+        button.layer.cornerRadius = 8;
+        
         button.tag = i.intValue;
-        [button addTarget:self action:@selector(aMethod:) forControlEvents:UIControlEventTouchDown];
+//        [button addTarget:self action:@selector(aMethod:) forControlEvents:UIControlEventTouchDown];
+        
+        [button addTarget:self action:@selector(aMethod:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(changeButtonBackGroundColor:) forControlEvents:UIControlEventTouchDown];
+        [button addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
+
+        
         [button setTitle:[[Common instance] getServiceName:i.intValue] forState:UIControlStateNormal];
         button.frame = CGRectMake(20.0, y, 280.0, 40.0);
         button.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
         [self.sv addSubview:button];
         
-        y += 40;
+        y += 43;
 
     }
 
     
     self.sv.contentSize = CGSizeMake(320, y + 20);
+}
+
+-(void)changeButtonBackGroundColor:(id) sender {
+    
+    [sender setBackgroundColor:RGBCOLOR(0xED, 0x77, 0x03)];
+}
+
+-(void)changeButtonBackGroundColor1:(id) sender {
+    
+    [sender setBackgroundColor:RGBCOLOR(0xF0, 0xBE, 0x32)];
 }
 
 -(void) aMethod:(id) sender {
