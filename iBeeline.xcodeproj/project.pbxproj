@@ -21,6 +21,8 @@
 		9C1C3D7517A7C0E400C56664 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1C3D7417A7C0E300C56664 /* Default.png */; };
 		9C1C3D7717A7C0EB00C56664 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1C3D7617A7C0EB00C56664 /* Default@2x.png */; };
 		9C1C3D7917A7C10400C56664 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1C3D7817A7C10400C56664 /* Default-568h@2x.png */; };
+		9C1C3D7C17A7E18100C56664 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1C3D7B17A7E18100C56664 /* SettingsViewController.m */; };
+		9C1C3D7F17A7E1A900C56664 /* BalansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1C3D7E17A7E1A800C56664 /* BalansViewController.m */; };
 		9CB7ED591798FD7B00628310 /* Zone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB7ED581798FD7B00628310 /* Zone.m */; };
 		9CBF6A791790068E00988B88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBF6A781790068E00988B88 /* UIKit.framework */; };
 		9CBF6A7B1790068E00988B88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBF6A7A1790068E00988B88 /* Foundation.framework */; };
@@ -62,6 +64,10 @@
 		9C1C3D7417A7C0E300C56664 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		9C1C3D7617A7C0EB00C56664 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9C1C3D7817A7C10400C56664 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9C1C3D7A17A7E18000C56664 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		9C1C3D7B17A7E18100C56664 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		9C1C3D7D17A7E1A400C56664 /* BalansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalansViewController.h; sourceTree = "<group>"; };
+		9C1C3D7E17A7E1A800C56664 /* BalansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalansViewController.m; sourceTree = "<group>"; };
 		9CB7ED571798FD7B00628310 /* Zone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zone.h; sourceTree = "<group>"; };
 		9CB7ED581798FD7B00628310 /* Zone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zone.m; sourceTree = "<group>"; };
 		9CBF6A751790068E00988B88 /* iBeeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBeeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +217,10 @@
 				DD5D7C7217927A8400858CE7 /* FAQDetailViewController.m */,
 				9CB7ED571798FD7B00628310 /* Zone.h */,
 				9CB7ED581798FD7B00628310 /* Zone.m */,
+				9C1C3D7A17A7E18000C56664 /* SettingsViewController.h */,
+				9C1C3D7B17A7E18100C56664 /* SettingsViewController.m */,
+				9C1C3D7D17A7E1A400C56664 /* BalansViewController.h */,
+				9C1C3D7E17A7E1A800C56664 /* BalansViewController.m */,
 				9CBF6A7F1790068F00988B88 /* Supporting Files */,
 			);
 			path = iBeeline;
@@ -327,6 +337,8 @@
 				DDAD9E8517929E20008A100B /* TarifDetailViewController.m in Sources */,
 				9CB7ED591798FD7B00628310 /* Zone.m in Sources */,
 				9C01106B179D32510067A6C7 /* ServiceDetailViewController.m in Sources */,
+				9C1C3D7C17A7E18100C56664 /* SettingsViewController.m in Sources */,
+				9C1C3D7F17A7E1A900C56664 /* BalansViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

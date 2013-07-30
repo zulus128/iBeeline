@@ -108,6 +108,37 @@
             </objects>
             <point key="canvasLocation" x="1033" y="595"/>
         </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="Jf8-7B-osb">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="IE6-Lt-bSy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="M50-lw-4fp"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OzB-Un-tq0">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="RNO-FK-baU" kind="relationship" relationship="rootViewController" id="GJv-VN-hOo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DNf-4F-zCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="632" y="1472"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tST-91-KVC">
+            <objects>
+                <viewController id="RNO-FK-baU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oXf-y7-9sm">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2qS-aE-LR3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Qt-h8-Pf0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="1464"/>
+        </scene>
         <!--Tarif Detail View Controller-->
         <scene sceneID="qaf-Uh-kUA">
             <objects>
@@ -255,6 +286,37 @@
             </objects>
             <point key="canvasLocation" x="1579" y="694"/>
         </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="3dd-BM-he7">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="PgD-F6-LFt" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="aau-0r-nuZ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rgp-G8-oCx">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Qnq-4a-pJf" kind="relationship" relationship="rootViewController" id="jKN-3O-z3Z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l1N-xJ-fMV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1648" y="1536"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="W7U-rg-AkL">
+            <objects>
+                <viewController id="Qnq-4a-pJf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="voY-pQ-jB5">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mny-iN-FZq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QOa-UH-YJM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2044" y="1536"/>
+        </scene>
         <!--Tarifs Nav Controller - Item-->
         <scene sceneID="emr-vX-Lvo">
             <objects>
@@ -329,6 +391,8 @@
                     <connections>
                         <segue destination="Dwb-sP-adm" kind="relationship" relationship="viewControllers" id="HUI-1Y-qb7"/>
                         <segue destination="dqL-KC-dzH" kind="relationship" relationship="viewControllers" id="jnK-6F-Zhm"/>
+                        <segue destination="IE6-Lt-bSy" kind="relationship" relationship="viewControllers" id="tDT-Pe-7Eh"/>
+                        <segue destination="PgD-F6-LFt" kind="relationship" relationship="viewControllers" id="Emu-bV-zPy"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -336,6 +400,46 @@
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="FAQDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FAQDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="wview" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="FAQViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FAQViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ServiceDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServiceDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="but1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="but2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sv" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="wv" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="wv_height" candidateClass="NSLayoutConstraint"/>
+            </relationships>
+        </class>
+        <class className="TarifDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TarifDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="bt1:"/>
+                <relationship kind="action" name="bt2:"/>
+                <relationship kind="outlet" name="but1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="but2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sv" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="TarifsNavController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TarifsNavController.h"/>
+        </class>
+        <class className="TarifsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TarifsViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
