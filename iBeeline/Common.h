@@ -45,10 +45,13 @@
 
 - (NSString*) getAltNameSelected:(BOOL)z;
 
+- (NSString*) getStringForKey:(NSString*)key;
+
 @property (nonatomic, retain) NSArray* faqjson;
 @property (nonatomic, retain) NSDictionary* tarifjson;
 @property (assign, readwrite) int selectedFAQ;
 @property (assign, readwrite) int selectedTarif;
 @property (assign, readwrite) int selectedService;
+@property (nonatomic, retain) NSBundle* languageBundle;
 
 @end

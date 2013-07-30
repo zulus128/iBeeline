@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController {
+    
+    UILabel* label;
+}
+
+@property(nonatomic, retain) IBOutlet UILabel* langlab;
+@property(nonatomic, retain) IBOutlet UIButton* langbut;
+
 
 @end

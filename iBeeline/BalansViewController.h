@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MFMessageComposeViewController.h>
 
-@interface BalansViewController : UIViewController
+@interface BalansViewController : UIViewController <MFMessageComposeViewControllerDelegate> {
+    
+    UILabel* label;
+}
+
+@property(nonatomic, retain) IBOutlet UITextView* tv1;
+@property(nonatomic, retain) IBOutlet UITextView* tv2;
+@property(nonatomic, retain) IBOutlet UITextView* tv3;
+
+@property(nonatomic, retain) IBOutlet UIButton* bu1;
+@property(nonatomic, retain) IBOutlet UIButton* bu2;
 
 @end

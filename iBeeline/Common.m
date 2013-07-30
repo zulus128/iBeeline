@@ -31,6 +31,11 @@
 	self = [super init];
 	if(self !=nil) {
         
+        BOOL l = [[NSUserDefaults standardUserDefaults] boolForKey:@"language"];
+        NSLog(@"lang = %d", l);
+        NSString* path = [[NSBundle mainBundle] pathForResource:(l?@"kk-KZ":@"ru") ofType:@"lproj"];
+        self.languageBundle = [NSBundle bundleWithPath:path];
+
         
         NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString* docpath = [sp objectAtIndex: 0];
@@ -142,14 +147,16 @@
 - (NSString*) getTarifName:(int)num {
 
     NSArray* ar = [self.tarifjson objectForKey:TARIF_KEY];
-    return [[ar objectAtIndex:num] objectForKey:NSLocalizedString(@"lang", nil)];
+//    return [[ar objectAtIndex:num] objectForKey:NSLocalizedString(@"lang", nil)];
+    return [[ar objectAtIndex:num] objectForKey:[self getStringForKey:@"lang"]];
 
 }
 
 - (NSString*) getSelectedTarifName {
 
     NSArray* ar = [self.tarifjson objectForKey:TARIF_KEY];
-    return [[ar objectAtIndex:self.selectedTarif] objectForKey:NSLocalizedString(@"lang", nil)];
+//    return [[ar objectAtIndex:self.selectedTarif] objectForKey:NSLocalizedString(@"lang", nil)];
+    return [[ar objectAtIndex:self.selectedTarif] objectForKey:[self getStringForKey:@"lang"]];
 
 }
 
@@ -222,7 +229,7 @@
     
     for(id ob in ar)
         if(((NSNumber*)[ob objectForKey:@"id"]).intValue == num)
-            return [ob objectForKey:NSLocalizedString(@"lang", nil)];
+            return [ob objectForKey:[self getStringForKey:@"lang"]];
     
     return @"...";
     
@@ -234,7 +241,7 @@
     
     for(id ob in ar)
         if(((NSNumber*)[ob objectForKey:@"id"]).intValue == self.selectedService)
-            return [ob objectForKey:NSLocalizedString(@"lang", nil)];
+            return [ob objectForKey:[self getStringForKey:@"lang"]];
     
     return @"...";
     
@@ -248,7 +255,7 @@
     for(id ob in ar)
         if(((NSNumber*)[ob objectForKey:@"id"]).intValue == self.selectedService) {
             
-            res = [ob objectForKey:NSLocalizedString(@"tlang", nil)];
+            res = [ob objectForKey:[self getStringForKey:@"tlang"]];
             break;
         }
     
@@ -271,12 +278,20 @@
     NSArray* ar = [self.tarifjson objectForKey:TARIF_KEY];
 //    NSLog(@"%@", ar);
     for(int i = 0; i < ar.count; i++)
-        if([[[ar objectAtIndex:i] objectForKey:NSLocalizedString(@"lang", nil)]isEqual:s]){
+        if([[[ar objectAtIndex:i] objectForKey:[self getStringForKey:@"lang"]]isEqual:s]){
             self.selectedTarif = i;
             NSLog(@"%d", i);
         }
 
 }
 
+- (NSString*) getStringForKey:(NSString*)key {
+    
+    if(self.languageBundle == nil)
+        return NSLocalizedString(key, nil);
+    
+    return NSLocalizedStringFromTableInBundle(key, nil, self.languageBundle, nil);
+
+}
 
 @end

@@ -30,14 +30,8 @@
     
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    UILabel* label=[[UILabel alloc] initWithFrame:CGRectMake(0,0, self.navigationItem.titleView.frame.size.width, 40)];
-    label.text = NSLocalizedString(@"Tarifs", nil);
+    label=[[UILabel alloc] initWithFrame:CGRectMake(0,0, self.navigationItem.titleView.frame.size.width, 40)];
+//    label.text = NSLocalizedString(@"Tarifs", nil);
     label.textColor=[UIColor blackColor];
     label.backgroundColor =[UIColor clearColor];
     label.adjustsFontSizeToFitWidth=YES;
@@ -46,21 +40,49 @@
     self.navigationItem.titleView=label;
 
     
-    self.title = NSLocalizedString(@"Tarifs", nil);
+//    self.title = NSLocalizedString(@"Tarifs", nil);
     
-//    UISearchBar* searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-//    searchBar.delegate = self;
-//    self.tableView.tableHeaderView = searchBar;
+//    self.list = [NSMutableArray array];
+//    for(int i = 0; i < [[Common instance] getTarifCnt]; i++)
+//        [self.list addObject:[[Common instance] getTarifName:i]];
+//    
+//    self.list = [self.list sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+    self.searchDisplayController.searchBar.tintColor = RGBCOLOR(0xF0, 0xBE, 0x32);
 
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+
+//    NSLog(@"will");
+
+    label.text = [[Common instance] getStringForKey:@"Tarifs"];
+    self.title = [[Common instance] getStringForKey:@"Tarifs"];
+    
     self.list = [NSMutableArray array];
     for(int i = 0; i < [[Common instance] getTarifCnt]; i++)
         [self.list addObject:[[Common instance] getTarifName:i]];
     
     self.list = [self.list sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     
-//    self.searchDisplayController.searchBar.tintColor = RGBCOLOR(0xED, 0x77, 0x03);
-    self.searchDisplayController.searchBar.tintColor = RGBCOLOR(0xF0, 0xBE, 0x32);
+    [self.tableView reloadData];
+    
+}
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+//    NSLog(@"did");
+
+    label.text = [[Common instance] getStringForKey:@"Tarifs"];
+    self.title = [[Common instance] getStringForKey:@"Tarifs"];
+    
+    self.list = [NSMutableArray array];
+    for(int i = 0; i < [[Common instance] getTarifCnt]; i++)
+        [self.list addObject:[[Common instance] getTarifName:i]];
+    
+    self.list = [self.list sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning

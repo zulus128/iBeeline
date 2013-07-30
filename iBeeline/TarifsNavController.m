@@ -27,22 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
-    self.title = NSLocalizedString(@"Tarifs", nil);
+//    self.title = NSLocalizedString(@"Tarifs", nil);
     
     self.navigationBar.tintColor = RGBCOLOR(0xF0, 0xBE, 0x32);
-
-//    [self.navigationItem.backBarButtonItem setTitleTextAttributes:
-//     [NSDictionary dictionaryWithObjectsAndKeys:
-//      [UIColor blackColor], UITextAttributeTextColor,
-//      nil]    forState:UIControlStateNormal];
-
     self.tabBarController.tabBar.tintColor = RGBCOLOR(0xF0, 0xBE, 0x32);
-
-//    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary: [[UITabBarItem appearance] titleTextAttributesForState:UIControlStateNormal]];
-//    [attributes setValue:[UIFont fontWithName:@"Avenir" size:10] forKey:UITextAttributeFont];
-//    [[UITabBarItem appearance] setTitleTextAttributes:attributes1 forState:UIControlStateNormal];
     
     
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -50,6 +39,21 @@
                                                        [UIColor blackColor], UITextAttributeTextColor,
                                                        nil] forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0.0, -10.0)];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+
+    self.title = [[Common instance] getStringForKey:@"Tarifs"];
+    NSArray *tabBarItemTitles = [NSArray arrayWithObjects: [[Common instance] getStringForKey:@"Tarifs"],
+                                 [[Common instance] getStringForKey:@"tab_balans"],
+                                 @"FAQ",
+                                 [[Common instance] getStringForKey:@"mnu_setting"], nil];
+    
+    for (UITabBarItem *item in self.tabBarController.tabBar.items)
+        item.title = [tabBarItemTitles objectAtIndex: [self.tabBarController.tabBar.items indexOfObject: item]];
+
+    
 }
 
 - (void)didReceiveMemoryWarning

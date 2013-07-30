@@ -29,8 +29,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    UILabel* label=[[UILabel alloc] initWithFrame:CGRectMake(0,0, self.navigationItem.titleView.frame.size.width, 40)];
-    label.text = [[Common instance] getSelectedServiceName];
+    label=[[UILabel alloc] initWithFrame:CGRectMake(0,0, self.navigationItem.titleView.frame.size.width, 40)];
+//    label.text = [[Common instance] getSelectedServiceName];
     label.textColor=[UIColor blackColor];
     label.backgroundColor =[UIColor clearColor];
     label.adjustsFontSizeToFitWidth=YES;
@@ -39,15 +39,24 @@
     self.navigationItem.titleView=label;
 
 
-    [self.wv loadHTMLString:[[Common instance] getSelectedServiceText] baseURL:nil];
+//    [self.wv loadHTMLString:[[Common instance] getSelectedServiceText] baseURL:nil];
 
     self.but1.hidden = YES;
     self.but2.hidden = YES;
     
-    [self.but1 setTitle: NSLocalizedString(@"btn_roaming_on", nil) forState:UIControlStateNormal];
-    [self.but2 setTitle: NSLocalizedString(@"btn_roaming_off", nil) forState:UIControlStateNormal];
+//    [self.but1 setTitle: NSLocalizedString(@"btn_roaming_on", nil) forState:UIControlStateNormal];
+//    [self.but2 setTitle: NSLocalizedString(@"btn_roaming_off", nil) forState:UIControlStateNormal];
     self.but1.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
     self.but2.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    label.text = [[Common instance] getSelectedServiceName];
+    [self.but1 setTitle: [[Common instance] getStringForKey:@"btn_roaming_on"] forState:UIControlStateNormal];
+    [self.but2 setTitle: [[Common instance] getStringForKey:@"btn_roaming_off"] forState:UIControlStateNormal];
+    [self.wv loadHTMLString:[[Common instance] getSelectedServiceText] baseURL:nil];
 
 }
 

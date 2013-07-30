@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TarifsViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface TarifsViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate> {
+    
+    UILabel* label;
+}
 
 @property (nonatomic, retain) NSMutableArray *list;
 @property (nonatomic, retain) NSArray *filteredList;

@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ServiceDetailViewController : UIViewController
+@interface ServiceDetailViewController : UIViewController {
+    
+    UILabel* label;
+}
 
 @property(nonatomic, retain) IBOutlet UIWebView* wv;
 @property(nonatomic, retain) IBOutlet NSLayoutConstraint* wv_height;
