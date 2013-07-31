@@ -53,6 +53,7 @@
     //    [self.langbut addTarget:self action:@selector(aMethod:) forControlEvents:UIControlEventTouchUpInside];
     [self.langbut addTarget:self action:@selector(changeButtonBackGroundColor:) forControlEvents:UIControlEventTouchDown];
     [self.langbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
+    [self.langbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpOutside];
     self.langbut.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
     
     [self.aboutbut setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -61,6 +62,7 @@
     self.aboutbut.layer.cornerRadius = 8;
     [self.aboutbut addTarget:self action:@selector(changeButtonBackGroundColor:) forControlEvents:UIControlEventTouchDown];
     [self.aboutbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
+    [self.aboutbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpOutside];
     self.aboutbut.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
     
 
@@ -103,9 +105,12 @@
     
     self.title = [[Common instance] getStringForKey:@"Tarifs"];
     NSArray *tabBarItemTitles = [NSArray arrayWithObjects: [[Common instance] getStringForKey:@"Tarifs"],
+                                 [[Common instance] getStringForKey:@"news_header"],
+                                 [[Common instance] getStringForKey:@"tab_roaming"],
                                  [[Common instance] getStringForKey:@"tab_balans"],
                                  @"FAQ",
-                                 [[Common instance] getStringForKey:@"mnu_setting"], nil];
+                                 [[Common instance] getStringForKey:@"mnu_setting"],
+                                 nil];
     
     for (UITabBarItem *item in self.tabBarController.tabBar.items)
         item.title = [tabBarItemTitles objectAtIndex: [self.tabBarController.tabBar.items indexOfObject: item]];

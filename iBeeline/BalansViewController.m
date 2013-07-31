@@ -60,6 +60,7 @@
     [self.bu1 addTarget:self action:@selector(aMethod:) forControlEvents:UIControlEventTouchUpInside];
     [self.bu1 addTarget:self action:@selector(changeButtonBackGroundColor:) forControlEvents:UIControlEventTouchDown];
     [self.bu1 addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
+    [self.bu1 addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpOutside];
 //    [self.bu1 setTitle:NSLocalizedString(@"btn_pre", nil) forState:UIControlStateNormal];
     self.bu1.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
     
@@ -71,6 +72,7 @@
     [self.bu2 addTarget:self action:@selector(aMethod:) forControlEvents:UIControlEventTouchUpInside];
     [self.bu2 addTarget:self action:@selector(changeButtonBackGroundColor:) forControlEvents:UIControlEventTouchDown];
     [self.bu2 addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
+    [self.bu2 addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpOutside];
 //    [self.bu2 setTitle:NSLocalizedString(@"btn_pre", nil) forState:UIControlStateNormal];
     self.bu2.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
     

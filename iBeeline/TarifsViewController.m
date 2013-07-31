@@ -31,22 +31,12 @@
     [super viewDidLoad];
 
     label=[[UILabel alloc] initWithFrame:CGRectMake(0,0, self.navigationItem.titleView.frame.size.width, 40)];
-//    label.text = NSLocalizedString(@"Tarifs", nil);
     label.textColor=[UIColor blackColor];
     label.backgroundColor =[UIColor clearColor];
     label.adjustsFontSizeToFitWidth=YES;
-    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
+//    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView=label;
-
-    
-//    self.title = NSLocalizedString(@"Tarifs", nil);
-    
-//    self.list = [NSMutableArray array];
-//    for(int i = 0; i < [[Common instance] getTarifCnt]; i++)
-//        [self.list addObject:[[Common instance] getTarifName:i]];
-//    
-//    self.list = [self.list sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     
     self.searchDisplayController.searchBar.tintColor = RGBCOLOR(0xF0, 0xBE, 0x32);
 
@@ -123,7 +113,6 @@
     
     
     UILabel *label = (UILabel *)[cell viewWithTag:100];
-//    [label setText:[self.list objectAtIndex:indexPath.row]];
     label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {

@@ -48,11 +48,11 @@
     [super viewDidLoad];
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                          [UIFont fontWithName:@"DSOfficinaSerif-Book" size:14],UITextAttributeFont,
+//                                                          [UIFont fontWithName:@"DSOfficinaSerif-Book" size:14],UITextAttributeFont,
                                                           [UIColor blackColor], UITextAttributeTextColor,
                                                           nil] forState:UIControlStateNormal];
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                          [UIFont fontWithName:@"DSOfficinaSerif-Book" size:14],UITextAttributeFont,
+//                                                          [UIFont fontWithName:@"DSOfficinaSerif-Book" size:14],UITextAttributeFont,
                                                           [UIColor blackColor], UITextAttributeTextColor,
                                                           nil] forState:UIControlStateHighlighted];
     
@@ -61,7 +61,7 @@
     label.textColor=[UIColor blackColor];
     label.backgroundColor =[UIColor clearColor];
     label.adjustsFontSizeToFitWidth=YES;
-    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
+//    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView=label;
 
@@ -99,9 +99,8 @@
         }
     }
     
-//    [self.but2 setTitle: NSLocalizedString(@"beeminus", nil) forState:UIControlStateNormal];
-    self.but1.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
-    self.but2.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+//    self.but1.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+//    self.but2.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
 
     
     [self fillContent:YES];
@@ -159,14 +158,14 @@
     okgt.numberOfLines = 0;
     okgt.text = [[Common instance] getStringForKey:@"t_out_kz"];
     [self.sv addSubview:okgt];
-    UILabel* okg = [[UILabel alloc] initWithFrame:CGRectMake(40, y, 70, 50)];
+    UILabel* okg = [[UILabel alloc] initWithFrame:CGRectMake(40, y - 7, 70, 50)];
     okg.backgroundColor = [UIColor clearColor];
     okg.textColor=[UIColor blackColor];
     okg.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE];
     okg.text = [NSString stringWithFormat:@"%.1f", zo.okg];
     [self.sv addSubview:okg];
     CGSize size = [okg.text sizeWithFont:[UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE]];
-    UILabel* sign1 = [[UILabel alloc] initWithFrame:CGRectMake(45 + size.width, y + 2, 100, 50)];
+    UILabel* sign1 = [[UILabel alloc] initWithFrame:CGRectMake(45 + size.width, y - 5, 100, 50)];
     sign1.backgroundColor = [UIColor clearColor];
     sign1.textColor=[UIColor blackColor];
     sign1.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
@@ -180,14 +179,14 @@
     loct.numberOfLines = 0;
     loct.text = [[Common instance] getStringForKey:@"t_local"];
     [self.sv addSubview:loct];
-    UILabel* loc = [[UILabel alloc] initWithFrame:CGRectMake(200, y, 70, 50)];
+    UILabel* loc = [[UILabel alloc] initWithFrame:CGRectMake(200, y - 7, 70, 50)];
     loc.backgroundColor = [UIColor clearColor];
     loc.textColor=[UIColor blackColor];
     loc.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE];
     loc.text = [NSString stringWithFormat:@"%.1f", zo.loc];
     [self.sv addSubview:loc];
     size = [loc.text sizeWithFont:[UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE]];
-    UILabel* sign2 = [[UILabel alloc] initWithFrame:CGRectMake(205 + size.width, y + 2, 100, 50)];
+    UILabel* sign2 = [[UILabel alloc] initWithFrame:CGRectMake(205 + size.width, y - 5, 100, 50)];
     sign2.backgroundColor = [UIColor clearColor];
     sign2.textColor=[UIColor blackColor];
     sign2.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
@@ -203,14 +202,14 @@
     outpt.numberOfLines = 0;
     outpt.text = [[Common instance] getStringForKey:@"t_out"];
     [self.sv addSubview:outpt];
-    UILabel* outp = [[UILabel alloc] initWithFrame:CGRectMake(40, y, 70, 50)];
+    UILabel* outp = [[UILabel alloc] initWithFrame:CGRectMake(40, y - 7, 70, 50)];
     outp.backgroundColor = [UIColor clearColor];
     outp.textColor=[UIColor blackColor];
     outp.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE];
     outp.text = [NSString stringWithFormat:@"%.1f", zo.output];
     [self.sv addSubview:outp];
     size = [outp.text sizeWithFont:[UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE]];
-    UILabel* sign3 = [[UILabel alloc] initWithFrame:CGRectMake(45 + size.width, y + 2, 100, 50)];
+    UILabel* sign3 = [[UILabel alloc] initWithFrame:CGRectMake(45 + size.width, y - 5, 100, 50)];
     sign3.backgroundColor = [UIColor clearColor];
     sign3.textColor=[UIColor blackColor];
     sign3.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
@@ -224,14 +223,14 @@
     inpt.numberOfLines = 0;
     inpt.text = [[Common instance] getStringForKey:@"t_input"];
     [self.sv addSubview:inpt];
-    UILabel* inp = [[UILabel alloc] initWithFrame:CGRectMake(200, y, 70, 50)];
+    UILabel* inp = [[UILabel alloc] initWithFrame:CGRectMake(200, y - 7, 70, 50)];
     inp.backgroundColor = [UIColor clearColor];
     inp.textColor=[UIColor blackColor];
     inp.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE];
     inp.text = [NSString stringWithFormat:@"%.1f", zo.input];
     [self.sv addSubview:inp];
     size = [inp.text sizeWithFont:[UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE]];
-    UILabel* sign4 = [[UILabel alloc] initWithFrame:CGRectMake(205 + size.width, y + 2, 100, 50)];
+    UILabel* sign4 = [[UILabel alloc] initWithFrame:CGRectMake(205 + size.width, y - 5, 100, 50)];
     sign4.backgroundColor = [UIColor clearColor];
     sign4.textColor=[UIColor blackColor];
     sign4.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
@@ -247,14 +246,14 @@
     smst.numberOfLines = 0;
     smst.text = [[Common instance] getStringForKey:@"t_sms"];
     [self.sv addSubview:smst];
-    UILabel* sms = [[UILabel alloc] initWithFrame:CGRectMake(40, y, 70, 50)];
+    UILabel* sms = [[UILabel alloc] initWithFrame:CGRectMake(40, y - 17, 70, 50)];
     sms.backgroundColor = [UIColor clearColor];
     sms.textColor=[UIColor blackColor];
     sms.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE];
     sms.text = [NSString stringWithFormat:@"%.1f", zo.sms];
     [self.sv addSubview:sms];
     size = [sms.text sizeWithFont:[UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE]];
-    UILabel* sign5 = [[UILabel alloc] initWithFrame:CGRectMake(45 + size.width, y + 2, 100, 50)];
+    UILabel* sign5 = [[UILabel alloc] initWithFrame:CGRectMake(45 + size.width, y - 15, 100, 50)];
     sign5.backgroundColor = [UIColor clearColor];
     sign5.textColor=[UIColor blackColor];
     sign5.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
@@ -270,20 +269,20 @@
         gprst.numberOfLines = 0;
         gprst.text = [[Common instance] getStringForKey:@"t_gprs"];
         [self.sv addSubview:gprst];
-        UILabel* gprs = [[UILabel alloc] initWithFrame:CGRectMake(200, y, 70, 50)];
+        UILabel* gprs = [[UILabel alloc] initWithFrame:CGRectMake(200, y - 17, 70, 50)];
         gprs.backgroundColor = [UIColor clearColor];
         gprs.textColor=[UIColor blackColor];
         gprs.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE];
         gprs.text = [NSString stringWithFormat:@"%.1f", zo.gprs];
         [self.sv addSubview:gprs];
         size = [gprs.text sizeWithFont:[UIFont fontWithName:@"DSOfficinaSerif-Book" size:FONTSIZE]];
-        UILabel* sign6 = [[UILabel alloc] initWithFrame:CGRectMake(205 + size.width, y + 2, 100, 50)];
+        UILabel* sign6 = [[UILabel alloc] initWithFrame:CGRectMake(205 + size.width, y - 15, 100, 50)];
         sign6.backgroundColor = [UIColor clearColor];
         sign6.textColor=[UIColor blackColor];
         sign6.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
         sign6.text = [[Common instance] getStringForKey:@"sign"];
         [self.sv addSubview:sign6];
-        UILabel* sign61 = [[UILabel alloc] initWithFrame:CGRectMake(120 , y + 20, 200, 70)];
+        UILabel* sign61 = [[UILabel alloc] initWithFrame:CGRectMake(120 , y + 3, 200, 70)];
         sign61.backgroundColor = [UIColor clearColor];
         sign61.textColor=[UIColor blackColor];
         sign61.numberOfLines = 0;
@@ -293,7 +292,7 @@
         y += 30;
     }
     
-    y += 50;
+    y += 40;
 
     NSString* altname = [[Common instance] getAltNameSelected:nb];
 //    NSLog(@"altname = %@", altname);
@@ -326,11 +325,12 @@
         [button addTarget:self action:@selector(aMethod:) forControlEvents:UIControlEventTouchUpInside];
         [button addTarget:self action:@selector(changeButtonBackGroundColor:) forControlEvents:UIControlEventTouchDown];
         [button addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpOutside];
 
         
         [button setTitle:[[Common instance] getServiceName:i.intValue] forState:UIControlStateNormal];
         button.frame = CGRectMake(20.0, y, 280.0, 40.0);
-        button.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+//        button.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
         [self.sv addSubview:button];
         
         y += 43;

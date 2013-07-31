@@ -35,10 +35,10 @@
     
     
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                       [UIFont fontWithName:@"DSOfficinaSerif-Book" size:18],UITextAttributeFont,
+//                                                       [UIFont fontWithName:@"DSOfficinaSerif-Book" size:16],UITextAttributeFont,
                                                        [UIColor blackColor], UITextAttributeTextColor,
                                                        nil] forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0.0, -10.0)];
+//    [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0.0, -10.0)];
     
 }
 
@@ -46,14 +46,17 @@
 
     self.title = [[Common instance] getStringForKey:@"Tarifs"];
     NSArray *tabBarItemTitles = [NSArray arrayWithObjects: [[Common instance] getStringForKey:@"Tarifs"],
+                                 [[Common instance] getStringForKey:@"news_header"],
+                                 [[Common instance] getStringForKey:@"tab_roaming"],
                                  [[Common instance] getStringForKey:@"tab_balans"],
                                  @"FAQ",
-                                 [[Common instance] getStringForKey:@"mnu_setting"], nil];
+                                 [[Common instance] getStringForKey:@"mnu_setting"],
+                                 nil];
     
     for (UITabBarItem *item in self.tabBarController.tabBar.items)
         item.title = [tabBarItemTitles objectAtIndex: [self.tabBarController.tabBar.items indexOfObject: item]];
 
-    
+    self.tabBarController.moreNavigationController.navigationBar.tintColor = RGBCOLOR(0xF0, 0xBE, 0x32);
 }
 
 - (void)didReceiveMemoryWarning
