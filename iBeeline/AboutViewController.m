@@ -1,19 +1,19 @@
 //
-//  FAQDetailViewController.m
+//  AboutViewController.m
 //  iBeeline
 //
-//  Created by вадим on 7/14/13.
+//  Created by Zul on 7/30/13.
 //  Copyright (c) 2013 Zul. All rights reserved.
 //
 
-#import "FAQDetailViewController.h"
+#import "AboutViewController.h"
 #import "Common.h"
 
-@interface FAQDetailViewController ()
+@interface AboutViewController ()
 
 @end
 
-@implementation FAQDetailViewController
+@implementation AboutViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +29,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-//    [self.wview loadHTMLString:[[Common instance] getSelectedFAQtext] baseURL:nil];
+    self.tv1.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:18];
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                           [UIFont fontWithName:@"DSOfficinaSerif-Book" size:16],UITextAttributeFont,
@@ -40,13 +40,12 @@
                                                           [UIFont fontWithName:@"DSOfficinaSerif-Book" size:16],UITextAttributeFont,
                                                           [UIColor blackColor], UITextAttributeTextColor,
                                                           nil] forState:UIControlStateHighlighted];
-    
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     
-    [self.wview loadHTMLString:[[Common instance] getSelectedFAQtext] baseURL:nil];
-
+    
+    self.tv1.text = [[Common instance] getStringForKey:@"about_text"];
 }
 
 - (void)didReceiveMemoryWarning

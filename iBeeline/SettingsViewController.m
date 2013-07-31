@@ -8,6 +8,8 @@
 
 #import "SettingsViewController.h"
 #import "Common.h"
+#import <QuartzCore/QuartzCore.h>
+#import "AboutViewController.h"
 
 @interface SettingsViewController ()
 
@@ -43,15 +45,49 @@
     
 //    self.title = NSLocalizedString(@"mnu_setting", nil);
     
+    
+    [self.langbut setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.langbut setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    [self.langbut setBackgroundColor:RGBCOLOR(0xF0, 0xBE, 0x32)];
+    self.langbut.layer.cornerRadius = 8;
+    //    [self.langbut addTarget:self action:@selector(aMethod:) forControlEvents:UIControlEventTouchUpInside];
+    [self.langbut addTarget:self action:@selector(changeButtonBackGroundColor:) forControlEvents:UIControlEventTouchDown];
+    [self.langbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
+    self.langbut.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+    
+    [self.aboutbut setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.aboutbut setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    [self.aboutbut setBackgroundColor:RGBCOLOR(0xF0, 0xBE, 0x32)];
+    self.aboutbut.layer.cornerRadius = 8;
+    [self.aboutbut addTarget:self action:@selector(changeButtonBackGroundColor:) forControlEvents:UIControlEventTouchDown];
+    [self.aboutbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
+    self.aboutbut.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+    
+
+
+}
+
+-(void)changeButtonBackGroundColor:(id) sender {
+    
+    [sender setBackgroundColor:RGBCOLOR(0xED, 0x77, 0x03)];
+}
+
+-(void)changeButtonBackGroundColor1:(id) sender {
+    
+    [sender setBackgroundColor:RGBCOLOR(0xF0, 0xBE, 0x32)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 
 
-  label.text = [[Common instance] getStringForKey:@"mnu_setting"];
-  self.title = [[Common instance] getStringForKey:@"mnu_setting"];
+    label.text = [[Common instance] getStringForKey:@"mnu_setting"];
+    self.title = [[Common instance] getStringForKey:@"mnu_setting"];
     
-//   NSLog(@"will %@", label.text);
+    self.langlab.text = [[Common instance] getStringForKey:@"set_lang"];
+    [self.langbut setTitle: [[Common instance] getStringForKey:@"lang_ru"] forState:UIControlStateNormal];
+    [self.aboutbut setTitle: [[Common instance] getStringForKey:@"set_about"] forState:UIControlStateNormal];
+
+    //   NSLog(@"will %@", label.text);
 }
 
 -(IBAction) bt1:(id) sender {
@@ -75,6 +111,12 @@
         item.title = [tabBarItemTitles objectAtIndex: [self.tabBarController.tabBar.items indexOfObject: item]];
 
     [self viewWillAppear:NO];
+}
+
+-(IBAction) bt2:(id) sender {
+
+    AboutViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"about"];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

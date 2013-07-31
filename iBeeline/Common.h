@@ -48,6 +48,7 @@
 - (NSString*) getStringForKey:(NSString*)key;
 
 @property (nonatomic, retain) NSArray* faqjson;
+@property (nonatomic, retain) NSArray* faqjsonkg;
 @property (nonatomic, retain) NSDictionary* tarifjson;
 @property (assign, readwrite) int selectedFAQ;
 @property (assign, readwrite) int selectedTarif;

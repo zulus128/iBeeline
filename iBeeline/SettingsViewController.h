@@ -16,5 +16,8 @@
 @property(nonatomic, retain) IBOutlet UILabel* langlab;
 @property(nonatomic, retain) IBOutlet UIButton* langbut;
 
+@property(nonatomic, retain) IBOutlet UIButton* aboutbut;
+
+
 
 @end

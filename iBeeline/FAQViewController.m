@@ -43,6 +43,22 @@
     
 
 }
+- (void)viewWillAppear:(BOOL)animated {
+    
+    //    NSLog(@"will");
+    
+    
+    [self.tableView reloadData];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    //    NSLog(@"did");
+    
+    
+    [self.tableView reloadData];
+}
 
 - (void)didReceiveMemoryWarning
 {

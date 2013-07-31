@@ -91,10 +91,26 @@
         if (!self.faqjson) {
             NSLog(@"Error parsing FAQ JSON: %@", error);
         } else {
-
-//            NSLog(@"Parsing FAQ: OK! %@", self.faqjson);
             NSLog(@"Parsing FAQ: OK!");
+        }
+        
+        faqPath = [docpath stringByAppendingPathComponent:@"faq_kg.json"];
+        fe = [[NSFileManager defaultManager] fileExistsAtPath:faqPath];
+        if(!fe) {
             
+            NSString *appFile = [[NSBundle mainBundle] pathForResource:@"faq_kg" ofType:@"json"];
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSError *error;
+            [fileManager copyItemAtPath:appFile toPath:faqPath error:&error];
+        }
+        
+        faq = [NSData dataWithContentsOfFile:faqPath];
+        self.faqjsonkg = [NSJSONSerialization JSONObjectWithData:faq options:NSDataReadingUncached error:&error];
+        
+        if (!self.faqjsonkg) {
+            NSLog(@"Error parsing FAQ_KG JSON: %@", error);
+        } else {
+            NSLog(@"Parsing FAQ_KG: OK!");
         }
 	}
 	return self;
@@ -102,17 +118,19 @@
 
 - (int) getFAQcnt {
     
-    return self.faqjson.count;
+    return [[self getStringForKey:@"lang"] isEqualToString:@"ru"]?self.faqjson.count:self.faqjsonkg.count;
 }
 
 - (NSString*) getFAQname:(int)num {
 
-//    NSArray* vals = [self.faqjson allValues];
-    return [[self.faqjson objectAtIndex:num] objectForKey:@"title"];
+    NSArray* arr = [[self getStringForKey:@"lang"] isEqualToString:@"ru"]?self.faqjson:self.faqjsonkg;
+    return [[arr objectAtIndex:num] objectForKey:@"title"];
 }
 
 - (NSString*) getFAQtext:(int)num {
     
+    NSArray* arr = [[self getStringForKey:@"lang"] isEqualToString:@"ru"]?self.faqjson:self.faqjsonkg;
+
     NSString *myHTML = [NSString stringWithFormat:@"<html> \n"
                         "<head> \n"
                         "<style type=\"text/css\"> \n"
@@ -120,13 +138,15 @@
                         "</style> \n"
                         "</head> \n"
                         "<body>%@</body> \n"
-                        "</html>", @"DSOfficinaSerif-Book", [NSNumber numberWithInt:16], [[self.faqjson objectAtIndex:num] objectForKey:@"text"]];
+                        "</html>", @"DSOfficinaSerif-Book", [NSNumber numberWithInt:16], [[arr objectAtIndex:num] objectForKey:@"text"]];
     return myHTML;
 
 }
 
 - (NSString*) getSelectedFAQtext {
     
+    NSArray* arr = [[self getStringForKey:@"lang"] isEqualToString:@"ru"]?self.faqjson:self.faqjsonkg;
+
     NSString *myHTML = [NSString stringWithFormat:@"<html> \n"
                         "<head> \n"
                         "<style type=\"text/css\"> \n"
@@ -134,7 +154,7 @@
                         "</style> \n"
                         "</head> \n"
                         "<body>%@</body> \n"
-                        "</html>", @"DSOfficinaSerif-Book", [NSNumber numberWithInt:16], [[self.faqjson objectAtIndex:self.selectedFAQ] objectForKey:@"text"]];
+                        "</html>", @"DSOfficinaSerif-Book", [NSNumber numberWithInt:16], [[arr objectAtIndex:self.selectedFAQ] objectForKey:@"text"]];
     return myHTML;
     
 }

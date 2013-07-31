@@ -12,7 +12,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TarifDetailViewController : UIViewController
+@interface TarifDetailViewController : UIViewController {
+    
+    BOOL nbb;
+}
 
 @property(nonatomic, retain) IBOutlet UIScrollView* sv;
 
