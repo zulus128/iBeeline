@@ -330,7 +330,8 @@
         
         [button setTitle:[[Common instance] getServiceName:i.intValue] forState:UIControlStateNormal];
         button.frame = CGRectMake(20.0, y, 280.0, 40.0);
-//        button.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+        //        button.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+        button.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:BUTTON_FONT];
         [self.sv addSubview:button];
         
         y += 43;

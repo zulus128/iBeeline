@@ -34,6 +34,8 @@
 		9CBF6A891790068F00988B88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF6A881790068F00988B88 /* AppDelegate.m */; };
 		9CBF6A921790068F00988B88 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF6A901790068F00988B88 /* MainStoryboard.storyboard */; };
 		9CEB2EA517A8DC600099B467 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2EA417A8DC600099B467 /* AboutViewController.m */; };
+		9CF6A08D17AA1E0E00A5623D /* news.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CF6A08C17AA1E0E00A5623D /* news.json */; };
+		9CF6A09017AA2F0A00A5623D /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF6A08F17AA2F0A00A5623D /* NewsDetailViewController.m */; };
 		DD5D7C701792601800858CE7 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5D7C6F1792601800858CE7 /* FAQViewController.m */; };
 		DD5D7C7317927A8400858CE7 /* FAQDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5D7C7217927A8400858CE7 /* FAQDetailViewController.m */; };
 		DD5D7C78179284FC00858CE7 /* TarifsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5D7C77179284FC00858CE7 /* TarifsNavController.m */; };
@@ -83,6 +85,9 @@
 		9CBF6A911790068F00988B88 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		9CEB2EA317A8DC600099B467 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		9CEB2EA417A8DC600099B467 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		9CF6A08C17AA1E0E00A5623D /* news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = news.json; sourceTree = "<group>"; };
+		9CF6A08E17AA2F0A00A5623D /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
+		9CF6A08F17AA2F0A00A5623D /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
 		DD5D7C6E1792601800858CE7 /* FAQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAQViewController.h; sourceTree = "<group>"; };
 		DD5D7C6F1792601800858CE7 /* FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQViewController.m; sourceTree = "<group>"; };
 		DD5D7C7117927A8400858CE7 /* FAQDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAQDetailViewController.h; sourceTree = "<group>"; };
@@ -127,6 +132,7 @@
 		9C0291A4179020CC007C44BA /* json */ = {
 			isa = PBXGroup;
 			children = (
+				9CF6A08C17AA1E0E00A5623D /* news.json */,
 				DDAD9E8117929063008A100B /* tarifs.json */,
 				9C0291A7179020E6007C44BA /* faq_kg.json */,
 				9C0291A8179020E6007C44BA /* faq.json */,
@@ -203,6 +209,8 @@
 				9C03EF3517A91918000709BC /* RoamingViewController.m */,
 				9C03EF3717A925A7000709BC /* NewsTableViewController.h */,
 				9C03EF3817A925A8000709BC /* NewsTableViewController.m */,
+				9CF6A08E17AA2F0A00A5623D /* NewsDetailViewController.h */,
+				9CF6A08F17AA2F0A00A5623D /* NewsDetailViewController.m */,
 				9CBF6A7F1790068F00988B88 /* Supporting Files */,
 			);
 			path = iBeeline;
@@ -289,6 +297,7 @@
 				9C1C3D7517A7C0E400C56664 /* Default.png in Resources */,
 				9C1C3D7717A7C0EB00C56664 /* Default@2x.png in Resources */,
 				9C1C3D7917A7C10400C56664 /* Default-568h@2x.png in Resources */,
+				9CF6A08D17AA1E0E00A5623D /* news.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +323,7 @@
 				9CEB2EA517A8DC600099B467 /* AboutViewController.m in Sources */,
 				9C03EF3617A91918000709BC /* RoamingViewController.m in Sources */,
 				9C03EF3917A925A8000709BC /* NewsTableViewController.m in Sources */,
+				9CF6A09017AA2F0A00A5623D /* NewsDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

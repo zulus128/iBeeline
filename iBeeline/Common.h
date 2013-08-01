@@ -25,12 +25,22 @@
 - (NSString*) getFAQname:(int)num;
 - (NSString*) getFAQtext:(int)num;
 - (NSString*) getSelectedFAQtext;
+- (NSString*) getSelectedFAQname;
 
 - (int) getTarifCnt;
 - (NSString*) getTarifName:(int)num;
 - (NSString*) getSelectedTarifName;
 - (NSString*) getTarifText:(int)num;
 - (NSString*) getSelectedTarifText;
+
+- (int) getNewsCnt;
+- (NSString*) getNewsTime:(int)num;
+- (NSString*) getNewsTitle:(int)num;
+- (NSString*) getNewsText:(int)num;
+- (NSString*) getNewsTextTrimmed:(int)num;
+- (NSString*) getSelectedNewsTime;
+- (NSString*) getSelectedNewsTitle;
+- (NSString*) getSelectedNewsText;
 
 - (void) setSelectedTarifNum:(NSString*)s;
 
@@ -49,10 +59,12 @@
 
 @property (nonatomic, retain) NSArray* faqjson;
 @property (nonatomic, retain) NSArray* faqjsonkg;
+@property (nonatomic, retain) NSArray* news;
 @property (nonatomic, retain) NSDictionary* tarifjson;
 @property (assign, readwrite) int selectedFAQ;
 @property (assign, readwrite) int selectedTarif;
 @property (assign, readwrite) int selectedService;
+@property (assign, readwrite) int selectedNews;
 @property (nonatomic, retain) NSBundle* languageBundle;
 
 @end

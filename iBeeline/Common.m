@@ -112,6 +112,30 @@
         } else {
             NSLog(@"Parsing FAQ_KG: OK!");
         }
+        
+        faqPath = [docpath stringByAppendingPathComponent:@"news.json"];
+        fe = [[NSFileManager defaultManager] fileExistsAtPath:faqPath];
+        if(!fe) {
+            
+            NSString *appFile = [[NSBundle mainBundle] pathForResource:@"news" ofType:@"json"];
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSError *error;
+            [fileManager copyItemAtPath:appFile toPath:faqPath error:&error];
+        }
+        
+        tarifs= [NSString stringWithContentsOfFile:faqPath encoding:NSUTF8StringEncoding error:nil];
+        tars = [tarifs stringByReplacingOccurrencesOfString:@"\r" withString:@"          "];
+        tars = [tars stringByReplacingOccurrencesOfString:@"\n" withString:@"          "];
+        faq = [tars dataUsingEncoding:NSUTF8StringEncoding];
+
+        self.news = [NSJSONSerialization JSONObjectWithData:faq options:NSDataReadingUncached error:&error];
+        
+        if (!self.news) {
+            NSLog(@"Error parsing News JSON: %@", error);
+        } else {
+            NSLog(@"Parsing News: OK!");
+        }
+        
 	}
 	return self;
 }
@@ -125,6 +149,13 @@
 
     NSArray* arr = [[self getStringForKey:@"lang"] isEqualToString:@"ru"]?self.faqjson:self.faqjsonkg;
     return [[arr objectAtIndex:num] objectForKey:@"title"];
+}
+
+- (NSString*) getSelectedFAQname {
+
+    NSArray* arr = [[self getStringForKey:@"lang"] isEqualToString:@"ru"]?self.faqjson:self.faqjsonkg;
+    return [[arr objectAtIndex:self.selectedFAQ] objectForKey:@"title"];
+
 }
 
 - (NSString*) getFAQtext:(int)num {
@@ -157,6 +188,93 @@
                         "</html>", @"DSOfficinaSerif-Book", [NSNumber numberWithInt:16], [[arr objectAtIndex:self.selectedFAQ] objectForKey:@"text"]];
     return myHTML;
     
+}
+
+- (int) getNewsCnt {
+    
+    NSMutableArray* temp = [NSMutableArray array];
+    for(id Obj in self.news) {
+//        NSLog(@"%@", [Obj objectForKey:@"lang"]);
+        if ([[Obj objectForKey:@"lang"] isEqualToString:[self getStringForKey:@"lang"]])
+            [temp addObject:Obj];
+    }
+    
+    return temp.count;
+
+}
+
+- (NSString*) getNewsTime:(int)num {
+
+    NSMutableArray* temp = [NSMutableArray array];
+    for(id Obj in self.news) {
+//        NSLog(@"%@", [Obj objectForKey:@"lang"]);
+        if ([[Obj objectForKey:@"lang"] isEqualToString:[self getStringForKey:@"lang"]])
+            [temp addObject:Obj];
+    }
+
+    return [[temp objectAtIndex:num] objectForKey:@"start"];
+}
+
+- (NSString*) getNewsTitle:(int)num {
+
+    NSMutableArray* temp = [NSMutableArray array];
+    for(id Obj in self.news) {
+//        NSLog(@"%@", [Obj objectForKey:@"lang"]);
+        if ([[Obj objectForKey:@"lang"] isEqualToString:[self getStringForKey:@"lang"]])
+            [temp addObject:Obj];
+    }
+
+    return [[temp objectAtIndex:num] objectForKey:@"title"];
+
+}
+
+- (NSString*) getNewsText:(int)num {
+
+    NSMutableArray* temp = [NSMutableArray array];
+    for(id Obj in self.news) {
+//        NSLog(@"%@", [Obj objectForKey:@"lang"]);
+        if ([[Obj objectForKey:@"lang"] isEqualToString:[self getStringForKey:@"lang"]])
+            [temp addObject:Obj];
+    }
+
+    return [[temp objectAtIndex:num] objectForKey:@"text"];
+}
+
+- (NSString*) getNewsTextTrimmed:(int)num {
+    
+    NSString* str = [self getNewsText:num];
+    int max = 190;
+    if(str.length > max)
+        str = [[str substringToIndex:max] stringByAppendingString:@"..."];
+    return str;
+}
+
+- (NSString*) getSelectedNewsTime {
+    
+    return [self getNewsTime:self.selectedNews];
+}
+
+- (NSString*) getSelectedNewsTitle {
+
+    return [self getNewsTitle:self.selectedNews];
+
+}
+
+- (NSString*) getSelectedNewsText {
+
+    NSString* res = [self getNewsText:self.selectedNews];
+    res = [res stringByReplacingOccurrencesOfString:@"          " withString:@"<br/>"];
+
+    NSString *myHTML = [NSString stringWithFormat:@"<html> \n"
+                        "<head> \n"
+                        "<style type=\"text/css\"> \n"
+                        "body {font-family: \"%@\"; font-size: %@;}\n"
+                        "</style> \n"
+                        "</head> \n"
+                        "<body>%@</body> \n"
+                        "</html>", @"DSOfficinaSerif-Book", [NSNumber numberWithInt:16], res];
+    return myHTML;
+
 }
 
 - (int) getTarifCnt {

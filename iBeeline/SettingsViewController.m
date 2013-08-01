@@ -37,7 +37,7 @@
     label.textColor=[UIColor blackColor];
     label.backgroundColor =[UIColor clearColor];
     label.adjustsFontSizeToFitWidth=YES;
-    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
+//    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView=label;
     
@@ -54,7 +54,7 @@
     [self.langbut addTarget:self action:@selector(changeButtonBackGroundColor:) forControlEvents:UIControlEventTouchDown];
     [self.langbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
     [self.langbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpOutside];
-    self.langbut.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+//    self.langbut.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
     
     [self.aboutbut setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.aboutbut setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
@@ -63,8 +63,17 @@
     [self.aboutbut addTarget:self action:@selector(changeButtonBackGroundColor:) forControlEvents:UIControlEventTouchDown];
     [self.aboutbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
     [self.aboutbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpOutside];
-    self.aboutbut.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+//    self.aboutbut.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
     
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                          //                                                          [UIFont fontWithName:@"DSOfficinaSerif-Book" size:16],UITextAttributeFont,
+                                                          [UIColor blackColor], UITextAttributeTextColor,
+                                                          nil] forState:UIControlStateNormal];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                          //                                                          [UIFont fontWithName:@"DSOfficinaSerif-Book" size:16],UITextAttributeFont,
+                                                          [UIColor blackColor], UITextAttributeTextColor,
+                                                          nil] forState:UIControlStateHighlighted];
 
 
 }
@@ -89,6 +98,9 @@
     [self.langbut setTitle: [[Common instance] getStringForKey:@"lang_ru"] forState:UIControlStateNormal];
     [self.aboutbut setTitle: [[Common instance] getStringForKey:@"set_about"] forState:UIControlStateNormal];
 
+    [self.aboutbut setBackgroundColor:RGBCOLOR(0xF0, 0xBE, 0x32)];
+
+    
     //   NSLog(@"will %@", label.text);
 }
 
@@ -120,9 +132,19 @@
 
 -(IBAction) bt2:(id) sender {
 
+//    [self performSelector:@selector(goabout) withObject:nil afterDelay:0.1f];
+
     AboutViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"about"];
     [self.navigationController pushViewController:detailVC animated:YES];
+
 }
+
+//- (void) goabout {
+//
+//    AboutViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"about"];
+//    [self.navigationController pushViewController:detailVC animated:YES];
+//    
+//}
 
 - (void)didReceiveMemoryWarning
 {

@@ -35,7 +35,7 @@
     label.textColor=[UIColor blackColor];
     label.backgroundColor =[UIColor clearColor];
     label.adjustsFontSizeToFitWidth=YES;
-    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
+//    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView=label;
     
@@ -62,7 +62,7 @@
     [self.bu1 addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
     [self.bu1 addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpOutside];
 //    [self.bu1 setTitle:NSLocalizedString(@"btn_pre", nil) forState:UIControlStateNormal];
-    self.bu1.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+//    self.bu1.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
     
     [self.bu2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.bu2 setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
@@ -74,8 +74,19 @@
     [self.bu2 addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
     [self.bu2 addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpOutside];
 //    [self.bu2 setTitle:NSLocalizedString(@"btn_pre", nil) forState:UIControlStateNormal];
-    self.bu2.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+//    self.bu2.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
     
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [infoButton addTarget:self action:@selector(showInfo) forControlEvents:UIControlEventTouchUpInside];
+    [infoButton setFrame:CGRectMake(40,5,32,32)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+    
+}
+
+- (void) showInfo {
+    
+    UIViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"info"];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

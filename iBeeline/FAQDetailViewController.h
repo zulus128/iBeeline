@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FAQDetailViewController : UIViewController
+@interface FAQDetailViewController : UIViewController {
+    
+    UILabel* label;
+
+}
 
 @property(nonatomic, retain) IBOutlet UIWebView *wview;
 

@@ -31,18 +31,29 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    UILabel* label=[[UILabel alloc] initWithFrame:CGRectMake(0,0, self.navigationItem.titleView.frame.size.width, 40)];
+    label=[[UILabel alloc] initWithFrame:CGRectMake(0,0, self.navigationItem.titleView.frame.size.width, 40)];
     label.text=@"FAQ";
     label.textColor=[UIColor blackColor];
     label.backgroundColor =[UIColor clearColor];
     label.adjustsFontSizeToFitWidth=YES;
-    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
+//    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView=label;
     self.navigationController.navigationBar.tintColor = RGBCOLOR(0xF0, 0xBE, 0x32);
     
-
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [infoButton addTarget:self action:@selector(showInfo) forControlEvents:UIControlEventTouchUpInside];
+    [infoButton setFrame:CGRectMake(40,5,32,32)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+    
 }
+
+- (void) showInfo {
+    
+    UIViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"info"];
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     
     //    NSLog(@"will");
@@ -89,9 +100,9 @@
 //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 //    }
     
-    UILabel *label = (UILabel *)[cell viewWithTag:100];
-    [label setText:[[Common instance] getFAQname:indexPath.row]];
-    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
+    UILabel *labe = (UILabel *)[cell viewWithTag:100];
+    [labe setText:[[Common instance] getFAQname:indexPath.row]];
+    labe.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
 
     UIView *bgColorView = [[UIView alloc] init];
     bgColorView.backgroundColor = RGBCOLOR(0xF0, 0xBE, 0x32);

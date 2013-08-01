@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AboutViewController : UIViewController
+@interface AboutViewController : UIViewController {
+    
+    UILabel* label;
+
+}
 
 @property(nonatomic, retain) IBOutlet UITextView* tv1;
 

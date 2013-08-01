@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FAQViewController : UITableViewController
+@interface FAQViewController : UITableViewController {
+    
+    UILabel* label;
+
+}
 
 @end

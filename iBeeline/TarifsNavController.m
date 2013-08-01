@@ -30,15 +30,18 @@
     
 //    self.title = NSLocalizedString(@"Tarifs", nil);
     
+
+
+    
     self.navigationBar.tintColor = RGBCOLOR(0xF0, 0xBE, 0x32);
     self.tabBarController.tabBar.tintColor = RGBCOLOR(0xF0, 0xBE, 0x32);
     
     
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-//                                                       [UIFont fontWithName:@"DSOfficinaSerif-Book" size:16],UITextAttributeFont,
+                                                       [UIFont fontWithName:@"Helvetica" size:13],UITextAttributeFont,
                                                        [UIColor blackColor], UITextAttributeTextColor,
                                                        nil] forState:UIControlStateNormal];
-//    [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0.0, -10.0)];
+    [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0.0, -13.0)];
     
 }
 

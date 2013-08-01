@@ -8,6 +8,7 @@
 
 #import "NewsTableViewController.h"
 #import "Common.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface NewsTableViewController ()
 
@@ -38,12 +39,23 @@
     label.textColor=[UIColor blackColor];
     label.backgroundColor =[UIColor clearColor];
     label.adjustsFontSizeToFitWidth=YES;
-    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
+//    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView=label;
     
     self.navigationController.navigationBar.tintColor = RGBCOLOR(0xF0, 0xBE, 0x32);
 
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [infoButton addTarget:self action:@selector(showInfo) forControlEvents:UIControlEventTouchUpInside];
+    [infoButton setFrame:CGRectMake(40,5,32,32)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+    
+}
+
+- (void) showInfo {
+    
+    UIViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"info"];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -75,29 +87,49 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return [[Common instance] getNewsCnt];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"newCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    UILabel *labe = (UILabel *)[cell viewWithTag:100];
+    [labe setText:[[Common instance] getNewsTime:indexPath.row]];
+    labe.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:12];
+    
+    UILabel *labe1 = (UILabel *)[cell viewWithTag:101];
+    [labe1 setText:[[Common instance] getNewsTitle:indexPath.row]];
+    labe1.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:16];
+    labe1.textColor = RGBCOLOR(0xF0, 0xBE, 0x32);
+
+    UILabel *labe2 = (UILabel *)[cell viewWithTag:102];
+    [labe2 setText:[[Common instance] getNewsTextTrimmed:indexPath.row]];
+    labe2.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:13];
+    labe2.numberOfLines = 0;
+    
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = RGBCOLOR(0xF0, 0xBE, 0x32);
+    bgColorView.layer.cornerRadius = 7;
+    bgColorView.layer.masksToBounds = YES;
+    [cell setSelectedBackgroundView:bgColorView];
     
     return cell;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 75;
+}
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -142,13 +174,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [Common instance].selectedNews = indexPath.row;
+    
+    UIViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"detailNews"];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 @end

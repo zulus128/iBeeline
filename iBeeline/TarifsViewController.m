@@ -40,6 +40,20 @@
     
     self.searchDisplayController.searchBar.tintColor = RGBCOLOR(0xF0, 0xBE, 0x32);
 
+//    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Show" style:UIBarButtonItemStylePlain                                                                     target:self action:@selector(refreshPropertyList:)];
+//    self.navigationItem.rightBarButtonItem = anotherButton;
+    
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [infoButton addTarget:self action:@selector(showInfo) forControlEvents:UIControlEventTouchUpInside];
+    [infoButton setFrame:CGRectMake(40,5,32,32)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+
+}
+
+- (void) showInfo {
+    
+    UIViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"info"];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

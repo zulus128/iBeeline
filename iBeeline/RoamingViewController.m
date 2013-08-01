@@ -33,7 +33,7 @@
     label.textColor=[UIColor blackColor];
     label.backgroundColor =[UIColor clearColor];
     label.adjustsFontSizeToFitWidth=YES;
-    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
+//    label.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView=label;
     
@@ -41,6 +41,17 @@
     
     self.tv1.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:14];
 
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [infoButton addTarget:self action:@selector(showInfo) forControlEvents:UIControlEventTouchUpInside];
+    [infoButton setFrame:CGRectMake(40,5,32,32)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+    
+}
+
+- (void) showInfo {
+    
+    UIViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"info"];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
