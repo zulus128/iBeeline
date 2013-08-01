@@ -151,7 +151,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvb-RI-K05">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="4rz-Gb-pVr"/>
-                                    <constraint firstAttribute="width" constant="144" id="qhT-5Y-BeT"/>
+                                    <constraint firstAttribute="width" constant="191" id="8Ak-HT-j3e"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button">
@@ -189,17 +189,44 @@
                                     <action selector="bt2:" destination="RNO-FK-baU" eventType="touchDown" id="8ij-Q8-MFe"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIV-3x-3cO">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Jag-R6-ka6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bt3:" destination="RNO-FK-baU" eventType="touchDown" id="jTG-zz-eb7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmJ-8j-I6l">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="DmJ-8j-I6l" firstAttribute="top" secondItem="SIV-3x-3cO" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4l4-Jd-Rwn"/>
                             <constraint firstItem="Kvb-RI-K05" firstAttribute="top" secondItem="oXf-y7-9sm" secondAttribute="top" constant="20" symbolic="YES" type="default" id="7xf-mG-ceJ"/>
+                            <constraint firstItem="DmJ-8j-I6l" firstAttribute="leading" secondItem="oXf-y7-9sm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="8Hz-i2-hEq"/>
+                            <constraint firstAttribute="trailing" secondItem="DmJ-8j-I6l" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="BQL-HQ-OYe"/>
+                            <constraint firstItem="SIV-3x-3cO" firstAttribute="leading" secondItem="oXf-y7-9sm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Dgx-SQ-rMM"/>
                             <constraint firstItem="3vo-MR-5dn" firstAttribute="top" secondItem="oXf-y7-9sm" secondAttribute="top" constant="31" id="EUb-KP-SQT"/>
                             <constraint firstAttribute="trailing" secondItem="Kvb-RI-K05" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="JcU-eP-4lf"/>
+                            <constraint firstItem="SIV-3x-3cO" firstAttribute="top" secondItem="oXf-y7-9sm" secondAttribute="top" constant="225" id="Jhb-dj-DzA"/>
                             <constraint firstAttribute="trailing" secondItem="ofv-Xl-8e4" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Joz-bF-kbM"/>
                             <constraint firstItem="ofv-Xl-8e4" firstAttribute="leading" secondItem="oXf-y7-9sm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="MSs-KP-dx1"/>
                             <constraint firstItem="3vo-MR-5dn" firstAttribute="baseline" secondItem="Kvb-RI-K05" secondAttribute="baseline" type="default" id="UvB-uy-iK7"/>
-                            <constraint firstItem="ofv-Xl-8e4" firstAttribute="top" secondItem="oXf-y7-9sm" secondAttribute="top" constant="90" id="fIt-sV-vZ1"/>
-                            <constraint firstItem="3vo-MR-5dn" firstAttribute="leading" secondItem="oXf-y7-9sm" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="i8b-53-DfG"/>
+                            <constraint firstAttribute="trailing" secondItem="SIV-3x-3cO" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="cW4-ex-Qg1"/>
+                            <constraint firstItem="ofv-Xl-8e4" firstAttribute="top" secondItem="oXf-y7-9sm" secondAttribute="top" constant="121" id="uZC-Pa-9p9"/>
+                            <constraint firstItem="3vo-MR-5dn" firstAttribute="leading" secondItem="oXf-y7-9sm" secondAttribute="leading" constant="34" id="vPq-uB-lus"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2qS-aE-LR3"/>
@@ -207,6 +234,8 @@
                         <outlet property="aboutbut" destination="ofv-Xl-8e4" id="iPL-WC-MpB"/>
                         <outlet property="langbut" destination="Kvb-RI-K05" id="DeF-sP-dUt"/>
                         <outlet property="langlab" destination="3vo-MR-5dn" id="sx8-9s-JUv"/>
+                        <outlet property="loadbut" destination="SIV-3x-3cO" id="zpZ-Jo-WMe"/>
+                        <outlet property="loadlab" destination="DmJ-8j-I6l" id="Qaf-dp-yLX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Qt-h8-Pf0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -777,9 +806,12 @@
             <relationships>
                 <relationship kind="action" name="bt1:"/>
                 <relationship kind="action" name="bt2:"/>
+                <relationship kind="action" name="bt3:"/>
                 <relationship kind="outlet" name="aboutbut" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="langbut" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="langlab" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loadbut" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loadlab" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="TarifDetailViewController" superclassName="UIViewController">

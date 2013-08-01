@@ -63,7 +63,15 @@
     [self.aboutbut addTarget:self action:@selector(changeButtonBackGroundColor:) forControlEvents:UIControlEventTouchDown];
     [self.aboutbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
     [self.aboutbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpOutside];
-//    self.aboutbut.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+    //    self.aboutbut.titleLabel.font = [UIFont fontWithName:@"DSOfficinaSerif-Bold" size:BUTTON_FONT];
+    
+    [self.loadbut setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.loadbut setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    [self.loadbut setBackgroundColor:RGBCOLOR(0xF0, 0xBE, 0x32)];
+    self.loadbut.layer.cornerRadius = 8;
+//    [self.loadbut addTarget:self action:@selector(changeButtonBackGroundColor:) forControlEvents:UIControlEventTouchDown];
+    [self.loadbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpOutside];
+    [self.loadbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
     
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                           //                                                          [UIFont fontWithName:@"DSOfficinaSerif-Book" size:16],UITextAttributeFont,
@@ -74,6 +82,9 @@
                                                           //                                                          [UIFont fontWithName:@"DSOfficinaSerif-Book" size:16],UITextAttributeFont,
                                                           [UIColor blackColor], UITextAttributeTextColor,
                                                           nil] forState:UIControlStateHighlighted];
+
+    self.loadlab.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:13];
+//    self.langlab.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:20];
 
 
 }
@@ -97,11 +108,28 @@
     self.langlab.text = [[Common instance] getStringForKey:@"set_lang"];
     [self.langbut setTitle: [[Common instance] getStringForKey:@"lang_ru"] forState:UIControlStateNormal];
     [self.aboutbut setTitle: [[Common instance] getStringForKey:@"set_about"] forState:UIControlStateNormal];
+    [self.loadbut setTitle: [[Common instance] getStringForKey:@"mnu_update"] forState:UIControlStateNormal];
 
     [self.aboutbut setBackgroundColor:RGBCOLOR(0xF0, 0xBE, 0x32)];
+    [self.loadbut setBackgroundColor:RGBCOLOR(0xF0, 0xBE, 0x32)];
 
+
+    [self setTimeLabel];
     
     //   NSLog(@"will %@", label.text);
+}
+
+-(void) setTimeLabel {
+
+    NSDate* date = [[NSDate alloc] initWithTimeIntervalSince1970:(NSTimeInterval)[Common instance].timestamp];
+    //    NSLog(@"date = %@", date);
+    NSDateFormatter *dFormat = [[NSDateFormatter alloc] init];
+    [dFormat setDateStyle:NSDateFormatterMediumStyle];
+    [dFormat setDateFormat:@"dd.MM.yyyy"];
+    
+    NSString *theDate = [dFormat stringFromDate:date];
+    self.loadlab.text = [[[Common instance] getStringForKey:@"lastdate"] stringByAppendingString:theDate];
+
 }
 
 -(IBAction) bt1:(id) sender {
@@ -131,20 +159,26 @@
 }
 
 -(IBAction) bt2:(id) sender {
-
-//    [self performSelector:@selector(goabout) withObject:nil afterDelay:0.1f];
-
+    
+    //    [self performSelector:@selector(goabout) withObject:nil afterDelay:0.1f];
+    
     AboutViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"about"];
     [self.navigationController pushViewController:detailVC animated:YES];
+    
+}
+
+-(IBAction) bt3:(id) sender {
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
+    [[Common instance] loadData];
+    
+    [self setTimeLabel];
+
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
 }
 
-//- (void) goabout {
-//
-//    AboutViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"about"];
-//    [self.navigationController pushViewController:detailVC animated:YES];
-//    
-//}
 
 - (void)didReceiveMemoryWarning
 {

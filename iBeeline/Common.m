@@ -36,108 +36,185 @@
         NSString* path = [[NSBundle mainBundle] pathForResource:(l?@"kk-KZ":@"ru") ofType:@"lproj"];
         self.languageBundle = [NSBundle bundleWithPath:path];
 
+        [self parseData];
         
-        NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString* docpath = [sp objectAtIndex: 0];
-
-        NSString* tarifPath = [docpath stringByAppendingPathComponent:@"tarifs.json"];
-        BOOL fe = [[NSFileManager defaultManager] fileExistsAtPath:tarifPath];
-        if(!fe) {
+        NSDate* date = [[NSDate alloc] initWithTimeIntervalSince1970:(NSTimeInterval)self.timestamp];
+        NSTimeInterval lastDiff = [date timeIntervalSinceNow];
+        
+        int days = lastDiff / 24/60/60;
+        
+        NSLog(@"days passed = %d", days);
+        
+        if(days < -6) {
             
-            NSString *appFile = [[NSBundle mainBundle] pathForResource:@"tarifs" ofType:@"json"];
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            NSError *error;
-            [fileManager copyItemAtPath:appFile toPath:tarifPath error:&error];
+            UIAlertView *dialog = [[UIAlertView alloc]
+                                   initWithTitle:nil message:[self getStringForKey:@"dlg_update"] delegate:self cancelButtonTitle:[self getStringForKey:@"mnu_update_no"] otherButtonTitles:[self getStringForKey:@"mnu_update_now"], nil];
+            [dialog show];
         }
-        
-//        NSString* tarifs = [NSString stringWithContentsOfFile:tarifPath];
-        NSString *tarifs= [NSString stringWithContentsOfFile:tarifPath encoding:NSUTF8StringEncoding error:nil];
-//        NSLog(@"tarifs = %@", tarifs);
-        NSString* tars = [tarifs stringByReplacingOccurrencesOfString:@"\r" withString:@"          "];
-//        NSString* tars = [tarifs stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
-//        NSLog(@"%@", tars);
-        tars = [tars stringByReplacingOccurrencesOfString:@"\n" withString:@"          "];
-//        tars = [tars stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-//        NSLog(@"tars = %@", tars);
-        NSData* tardata = [tars dataUsingEncoding:NSUTF8StringEncoding];
-        NSError* error;
-        self.tarifjson = [NSJSONSerialization JSONObjectWithData:tardata options:NSDataReadingUncached error:&error];
-        
-        if (!self.tarifjson) {
-
-            NSLog(@"Error parsing FAQ Tarifs: %@", error);
-            
-        } else {
-            
-            NSLog(@"Parsing Tarifs: OK!");
-//            NSLog(@"Parsing Tarifs: OK! %@", [self.tarifjson objectForKey:TARIF_KEY]);
-            
-        }
-
-        
-        NSString* faqPath = [docpath stringByAppendingPathComponent:@"faq.json"];
-        fe = [[NSFileManager defaultManager] fileExistsAtPath:faqPath];
-        if(!fe) {
-            
-            NSString *appFile = [[NSBundle mainBundle] pathForResource:@"faq" ofType:@"json"];
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            NSError *error;
-            [fileManager copyItemAtPath:appFile toPath:faqPath error:&error];
-        }
-        
-        NSData* faq = [NSData dataWithContentsOfFile:faqPath];
-        self.faqjson = [NSJSONSerialization JSONObjectWithData:faq options:NSDataReadingUncached error:&error];
-        
-        if (!self.faqjson) {
-            NSLog(@"Error parsing FAQ JSON: %@", error);
-        } else {
-            NSLog(@"Parsing FAQ: OK!");
-        }
-        
-        faqPath = [docpath stringByAppendingPathComponent:@"faq_kg.json"];
-        fe = [[NSFileManager defaultManager] fileExistsAtPath:faqPath];
-        if(!fe) {
-            
-            NSString *appFile = [[NSBundle mainBundle] pathForResource:@"faq_kg" ofType:@"json"];
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            NSError *error;
-            [fileManager copyItemAtPath:appFile toPath:faqPath error:&error];
-        }
-        
-        faq = [NSData dataWithContentsOfFile:faqPath];
-        self.faqjsonkg = [NSJSONSerialization JSONObjectWithData:faq options:NSDataReadingUncached error:&error];
-        
-        if (!self.faqjsonkg) {
-            NSLog(@"Error parsing FAQ_KG JSON: %@", error);
-        } else {
-            NSLog(@"Parsing FAQ_KG: OK!");
-        }
-        
-        faqPath = [docpath stringByAppendingPathComponent:@"news.json"];
-        fe = [[NSFileManager defaultManager] fileExistsAtPath:faqPath];
-        if(!fe) {
-            
-            NSString *appFile = [[NSBundle mainBundle] pathForResource:@"news" ofType:@"json"];
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            NSError *error;
-            [fileManager copyItemAtPath:appFile toPath:faqPath error:&error];
-        }
-        
-        tarifs= [NSString stringWithContentsOfFile:faqPath encoding:NSUTF8StringEncoding error:nil];
-        tars = [tarifs stringByReplacingOccurrencesOfString:@"\r" withString:@"          "];
-        tars = [tars stringByReplacingOccurrencesOfString:@"\n" withString:@"          "];
-        faq = [tars dataUsingEncoding:NSUTF8StringEncoding];
-
-        self.news = [NSJSONSerialization JSONObjectWithData:faq options:NSDataReadingUncached error:&error];
-        
-        if (!self.news) {
-            NSLog(@"Error parsing News JSON: %@", error);
-        } else {
-            NSLog(@"Parsing News: OK!");
-        }
-        
 	}
 	return self;
+}
+
+- (void) parseData {
+
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+    
+    NSString* tarifPath = [docpath stringByAppendingPathComponent:@"tarifs.json"];
+    BOOL fe = [[NSFileManager defaultManager] fileExistsAtPath:tarifPath];
+    if(!fe) {
+        
+        NSString *appFile = [[NSBundle mainBundle] pathForResource:@"tarifs" ofType:@"json"];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSError *error;
+        [fileManager copyItemAtPath:appFile toPath:tarifPath error:&error];
+    }
+    
+    //        NSString* tarifs = [NSString stringWithContentsOfFile:tarifPath];
+    NSString *tarifs= [NSString stringWithContentsOfFile:tarifPath encoding:NSUTF8StringEncoding error:nil];
+    //        NSLog(@"tarifs = %@", tarifs);
+    NSString* tars = [tarifs stringByReplacingOccurrencesOfString:@"\r" withString:@"          "];
+    //        NSString* tars = [tarifs stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
+    //        NSLog(@"%@", tars);
+    tars = [tars stringByReplacingOccurrencesOfString:@"\n" withString:@"          "];
+    //        tars = [tars stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+    //        NSLog(@"tars = %@", tars);
+    NSData* tardata = [tars dataUsingEncoding:NSUTF8StringEncoding];
+    NSError* error;
+    self.tarifjson = [NSJSONSerialization JSONObjectWithData:tardata options:NSDataReadingUncached error:&error];
+    
+    if (!self.tarifjson) {
+        
+        NSLog(@"Error parsing FAQ Tarifs: %@", error);
+        
+    } else {
+        
+        NSLog(@"Parsing Tarifs: OK!");
+        //            NSLog(@"Parsing Tarifs: OK! %@", [self.tarifjson objectForKey:TARIF_KEY]);
+        [self setTstamp];
+    }
+    
+    
+    NSString* faqPath = [docpath stringByAppendingPathComponent:@"faq.json"];
+    fe = [[NSFileManager defaultManager] fileExistsAtPath:faqPath];
+    if(!fe) {
+        
+        NSString *appFile = [[NSBundle mainBundle] pathForResource:@"faq" ofType:@"json"];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSError *error;
+        [fileManager copyItemAtPath:appFile toPath:faqPath error:&error];
+    }
+    
+    NSData* faq = [NSData dataWithContentsOfFile:faqPath];
+    self.faqjson = [NSJSONSerialization JSONObjectWithData:faq options:NSDataReadingUncached error:&error];
+    
+    if (!self.faqjson) {
+        NSLog(@"Error parsing FAQ JSON: %@", error);
+    } else {
+        NSLog(@"Parsing FAQ: OK!");
+    }
+    
+    faqPath = [docpath stringByAppendingPathComponent:@"faq_kg.json"];
+    fe = [[NSFileManager defaultManager] fileExistsAtPath:faqPath];
+    if(!fe) {
+        
+        NSString *appFile = [[NSBundle mainBundle] pathForResource:@"faq_kg" ofType:@"json"];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSError *error;
+        [fileManager copyItemAtPath:appFile toPath:faqPath error:&error];
+    }
+    
+    faq = [NSData dataWithContentsOfFile:faqPath];
+    self.faqjsonkg = [NSJSONSerialization JSONObjectWithData:faq options:NSDataReadingUncached error:&error];
+    
+    if (!self.faqjsonkg) {
+        NSLog(@"Error parsing FAQ_KG JSON: %@", error);
+    } else {
+        NSLog(@"Parsing FAQ_KG: OK!");
+    }
+    
+    faqPath = [docpath stringByAppendingPathComponent:@"news.json"];
+    fe = [[NSFileManager defaultManager] fileExistsAtPath:faqPath];
+    if(!fe) {
+        
+        NSString *appFile = [[NSBundle mainBundle] pathForResource:@"news" ofType:@"json"];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSError *error;
+        [fileManager copyItemAtPath:appFile toPath:faqPath error:&error];
+    }
+    
+    tarifs= [NSString stringWithContentsOfFile:faqPath encoding:NSUTF8StringEncoding error:nil];
+    tars = [tarifs stringByReplacingOccurrencesOfString:@"\r" withString:@"          "];
+    tars = [tars stringByReplacingOccurrencesOfString:@"\n" withString:@"          "];
+    faq = [tars dataUsingEncoding:NSUTF8StringEncoding];
+    
+    self.news = [NSJSONSerialization JSONObjectWithData:faq options:NSDataReadingUncached error:&error];
+    
+    if (!self.news) {
+        NSLog(@"Error parsing News JSON: %@", error);
+    } else {
+        NSLog(@"Parsing News: OK!");
+    }
+
+}
+
+- (void) loadData {
+    
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+
+    NSString* filePath = [docpath stringByAppendingPathComponent:@"tarifs.json"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:TARIF_URL]];
+    NSHTTPURLResponse* urlResponse = nil;
+    NSError *error = nil;
+    NSData* responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    if (responseData == nil) {
+        if (error != nil) {
+            
+            UIAlertView* dialog = [[UIAlertView alloc] init];
+            [dialog setTitle:[self getStringForKey:@"network_error"]];
+            [dialog setMessage:[self getStringForKey:@"network_error1"]];
+            [dialog addButtonWithTitle:@"OK"];
+            [dialog show];
+        }
+    }
+    else {
+        
+        [responseData writeToFile:filePath atomically:YES];
+        NSLog(@"tarifs loaded OK!");
+        
+        
+        filePath = [docpath stringByAppendingPathComponent:@"news.json"];
+        request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:NEWS_URL]];
+        urlResponse = nil;
+        error = nil;
+        responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+        if (responseData == nil) {
+            if (error != nil) {
+                
+                UIAlertView* dialog = [[UIAlertView alloc] init];
+                [dialog setTitle:[self getStringForKey:@"network_error"]];
+                [dialog setMessage:[self getStringForKey:@"network_error1"]];
+                [dialog addButtonWithTitle:@"OK"];
+                [dialog show];
+            }
+        }
+        else {
+            
+            [responseData writeToFile:filePath atomically:YES];
+            NSLog(@" news loaded OK!");
+            
+//            [self parseData];
+        }
+
+        
+        
+        [self parseData];
+    }
+    
+    
 }
 
 - (int) getFAQcnt {
@@ -430,6 +507,18 @@
     
     return NSLocalizedStringFromTableInBundle(key, nil, self.languageBundle, nil);
 
+}
+
+
+- (void) setTstamp {
+
+    if(!self.tarifjson)
+        return;
+    
+    NSNumber* a = [self.tarifjson objectForKey:TIMESTAMP_KEY];
+    
+    self.timestamp = a.doubleValue / 1000;
+    
 }
 
 @end

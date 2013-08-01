@@ -9,7 +9,11 @@
 #define TARIF_KEY @"c"
 #define ZONE_KEY @"t"
 #define SERVICE_KEY @"s"
+#define TIMESTAMP_KEY @"d"
 #define BUTTON_FONT 16
+
+#define TARIF_URL @"http://194.176.111.95/BeeLineKGMobile/update"
+#define NEWS_URL @"http://194.176.111.95/BeeLineKGMobile/getOffers"
 
 #define RGBCOLOR(r, g, b) [UIColor colorWithRed:r/225.0f green:g/225.0f blue:b/225.0f alpha:1]
 
@@ -57,6 +61,8 @@
 
 - (NSString*) getStringForKey:(NSString*)key;
 
+- (void) loadData;
+
 @property (nonatomic, retain) NSArray* faqjson;
 @property (nonatomic, retain) NSArray* faqjsonkg;
 @property (nonatomic, retain) NSArray* news;
@@ -65,6 +71,7 @@
 @property (assign, readwrite) int selectedTarif;
 @property (assign, readwrite) int selectedService;
 @property (assign, readwrite) int selectedNews;
+@property (assign, readwrite) double timestamp;
 @property (nonatomic, retain) NSBundle* languageBundle;
 
 @end
