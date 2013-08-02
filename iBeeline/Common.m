@@ -55,6 +55,23 @@
 	return self;
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    //    NSLog(@"index = %d", buttonIndex);
+    
+    
+    if(buttonIndex) {
+        
+
+        [self loadData];
+        
+    }
+    else {
+        
+        
+    }
+}
+
 - (void) parseData {
 
     NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
