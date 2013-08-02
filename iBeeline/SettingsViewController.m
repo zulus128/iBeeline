@@ -69,7 +69,7 @@
     [self.loadbut setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [self.loadbut setBackgroundColor:RGBCOLOR(0xF0, 0xBE, 0x32)];
     self.loadbut.layer.cornerRadius = 8;
-//    [self.loadbut addTarget:self action:@selector(changeButtonBackGroundColor:) forControlEvents:UIControlEventTouchDown];
+    [self.loadbut addTarget:self action:@selector(changeButtonBackGroundColor:) forControlEvents:UIControlEventTouchDown];
     [self.loadbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpOutside];
     [self.loadbut addTarget:self action:@selector(changeButtonBackGroundColor1:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -169,6 +169,9 @@
 
 -(IBAction) bt3:(id) sender {
     
+    [self performSelector:@selector(gobt3) withObject:nil afterDelay:0.5f];
+
+    
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
     [[Common instance] loadData];
@@ -179,6 +182,11 @@
 
 }
 
+-(void) gobt3 {
+
+    [self.loadbut setBackgroundColor:RGBCOLOR(0xF0, 0xBE, 0x32)];
+
+}
 
 - (void)didReceiveMemoryWarning
 {

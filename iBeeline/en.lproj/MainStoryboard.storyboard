@@ -162,7 +162,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="bt1:" destination="RNO-FK-baU" eventType="touchDown" id="sDj-24-fU1"/>
+                                    <action selector="bt1:" destination="RNO-FK-baU" eventType="touchUpInside" id="x2G-qt-6AH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vo-MR-5dn">
@@ -186,7 +186,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="bt2:" destination="RNO-FK-baU" eventType="touchDown" id="8ij-Q8-MFe"/>
+                                    <action selector="bt2:" destination="RNO-FK-baU" eventType="touchUpInside" id="9e0-zM-qCc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIV-3x-3cO">
@@ -202,7 +202,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="bt3:" destination="RNO-FK-baU" eventType="touchDown" id="jTG-zz-eb7"/>
+                                    <action selector="bt3:" destination="RNO-FK-baU" eventType="touchUpInside" id="O17-30-47I"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmJ-8j-I6l">
@@ -804,9 +804,6 @@
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="bt1:"/>
-                <relationship kind="action" name="bt2:"/>
-                <relationship kind="action" name="bt3:"/>
                 <relationship kind="outlet" name="aboutbut" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="langbut" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="langlab" candidateClass="UILabel"/>

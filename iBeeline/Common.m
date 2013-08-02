@@ -226,7 +226,11 @@
 //            [self parseData];
         }
 
-        
+        UIAlertView* dialog = [[UIAlertView alloc] init];
+        [dialog setTitle:nil];
+        [dialog setMessage:[self getStringForKey:@"loadok"]];
+        [dialog addButtonWithTitle:@"OK"];
+        [dialog show];
         
         [self parseData];
     }
