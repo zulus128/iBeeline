@@ -151,7 +151,7 @@
     
     int y = 50;
     
-    UILabel* okgt = [[UILabel alloc] initWithFrame:CGRectMake(40, y - 40, 100, 50)];
+    UILabel* okgt = [[UILabel alloc] initWithFrame:CGRectMake(40, y - 40, 170, 50)];
     okgt.backgroundColor = [UIColor clearColor];
     okgt.textColor=[UIColor blackColor];
     okgt.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];
@@ -262,7 +262,7 @@
     
     if(zo.gprs > 0) {
         
-        UILabel* gprst = [[UILabel alloc] initWithFrame:CGRectMake(200, y - 40, 100, 50)];
+        UILabel* gprst = [[UILabel alloc] initWithFrame:CGRectMake(200, y - 40, 200, 50)];
         gprst.backgroundColor = [UIColor clearColor];
         gprst.textColor=[UIColor blackColor];
         gprst.font = [UIFont fontWithName:@"DSOfficinaSerif-Book" size:LFONTSIZE];

@@ -10,7 +10,7 @@
 #define ZONE_KEY @"t"
 #define SERVICE_KEY @"s"
 #define TIMESTAMP_KEY @"d"
-#define BUTTON_FONT 16
+#define BUTTON_FONT 15
 
 #define TARIF_URL @"http://194.176.111.95/BeeLineKGMobile/update"
 #define NEWS_URL @"http://194.176.111.95/BeeLineKGMobile/getOffers"
